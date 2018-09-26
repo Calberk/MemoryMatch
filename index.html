@@ -1,106 +1,144 @@
 <!doctype html>
 <html lang="en">
 <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="main.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <link href="http://learning-fuze.github.io/memory_match/v0.1/script.js">
     <title>Document</title>
 </head>
 <body>
-    <header class="head-container">Clash Royale: Match</header>
-    <div>
+    <header class="head-container">
+        <div class="logo">GAME LOGO</div>
+        <div class="title">CLASH AND MATCH</div>
+        <div class="links"></div>
+    </header>
+    <aside class="game-info">
     <div class="games-played">
-        <div class="label">Games Played</div>
+        <div class="label">Games Played:</div>
         <div class="value"></div>
     </div>
     <div class="attempts">
-        <div class="label">Attemps</div>
+        <div class="label">Attempts:</div>
         <div class="value"></div>
     </div>
     <div class="accuracy">
-        <div class="label">Accuracy</div>
+        <div class="label">Accuracy:</div>
         <div class="value"></div>
     </div>
-    <button type="button" class="reset">Rest Game</button>
+    <div class="reset">
+    <button type="button" id="reset-game">Rest Game</button>
     </div>
-    <div id="game-area">
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
+    </aside>
+    <section class="game-area">
+        <div class="card-container">
+            <div class="card">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
         </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
+        <div class="card-container">
+            <div class="card">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
         </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
+        <div class="card-container">
+            <div class="card">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
         </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
+        <div class="card-container">
+            <div class="card">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
         </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
+        <div class="card-container">
+            <div class="card">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
         </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
+        <div class="card-container">
+            <div class="card">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
         </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
+        <div class="card-container">
+            <div class="card">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
         </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
+        <div class="card-container">
+            <div class="card">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
         </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
+        <div class="card-container">
+            <div class="card">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
         </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
+        <div class="card-container">
+            <div class="card">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
         </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
+        <div class="card-container">
+            <div class="card">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
         </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
+        <div class="card-container">
+            <div class="card">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
         </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
+        <div class="card-container">
+            <div class="card">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
         </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
+        <div class="card-container">
+            <div class="card">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
         </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
+        <div class="card-container">
+            <div class="card">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
         </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
+        <div class="card-container">
+            <div class="card">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
         </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
+        <div class="card-container">
+            <div class="card">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
         </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
+        <div class="card-container">
+            <div class="card">
+                <div class="front"></div>
+                <div class="back"></div>
+            </div>
         </div>
-    </div>
+    </section>
     <div class="extras-area"></div>
-
-
-
 </body>
 </html>
