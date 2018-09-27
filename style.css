@@ -17,12 +17,13 @@ body {
     font-size: 1rem;
 }
 
-.logo {
+.logo, .logo-img{
     width: 30%;
     height: 100%;
     vertical-align: top;
     background-color: red;
 }
+
 
 .title {
     width: 40%;
