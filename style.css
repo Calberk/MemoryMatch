@@ -5,7 +5,6 @@ body {
     height: 100vh;
 }
 
-
 .head-container {
     width: 100%;
     height: 15%;
@@ -21,21 +20,28 @@ body {
     width: 30%;
     height: 100%;
     vertical-align: top;
-    background-color: red;
 }
 
+.logo-img {
+    position: relative;
+    left: 10%;
+    height: 90%;
+    width: 90px;
+}
 
 .title {
     width: 40%;
     height: 100%;
+    font-size: 40px;
+    text-align: center;
     vertical-align: top;
-    background-color: blue;
+    color: white;
 }
 
 .links {
     width: 30%;
     height: 100%;
-    background-color: yellow;
+    color: white;
 }
 
 .about-me {
@@ -44,13 +50,14 @@ body {
     background-color: yellow;
 }
 
-.game-info, .game-area {
+.game-info, .game-area, .extras-area {
     display: inline-block;
     font-size: 1rem;
     vertical-align: top;
 }
+
 .game-info {
-    width: 20%;
+    width: 12%;
     height: 100%;
     background-color: orange;
 }
@@ -79,46 +86,65 @@ body {
     background-color: #4cae4c;
 }
 
-#rest-game {
+#reset-game {
 
 }
 
 .game-area {
-    width: 60%;
+    width: 78%;
     height: 100%;
-    background-color: green;
+    background: wheat;
+}
+
+.board-img {
+    background-image: url("images/background-crop.jpg");
+
+
 }
 
 .card-container {
     width: 16.6%;
     height: 33.33%;
-    background-color: mediumpurple;
+    border-radius: 15px;
     float: left;
+    margin: 0;
 }
 
 .card {
     width: 80%;
     height: 80%;
-    position: relative;
     top: 10%;
     left: 10%;
-    background-color: #122b40;
+    position: relative;
+    border-radius: 15px;
+    margin: 0;
 }
 
-.front {
+.front, .front-img {
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
+    border-radius: 15px;
     position: absolute;
     background-color: wheat;
 }
 
-.back {
+.back, .back-img{
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
+    border-radius: 15px;
     position: absolute;
-    background-color: fuchsia;
+}
+
+.extras-area {
+    width: 10%;
+    height: 100%;
+    background-color: pink;
+}
+
+.hide .back{
+    display: none;
 }
