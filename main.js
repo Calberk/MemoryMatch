@@ -9,28 +9,46 @@ var firstSelectedCard = null;
 var secondSelectedCard = null;
 var total_possible_matches = 2;
 var match_counter = 0;
+var canIClick = true;
 
 function applyHandler() {
     $(".card").click(cardClick)
 }
 
-function cardClick(){
-    var firstCardChecked = $(firstSelectedCard).find(".front > img").attr("src")
-    var secondCardChecked = $(firstSelectedCard).find(".front > img").attr("src")
-    if(firstSelectedCard === null){
-        firstSelectedCard = $(event.currentTarget);
-        firstSelectedCard.addClass("hide");
-    }else {
-        secondSelectedCard = event.currentTarget;
-        hideCard(event.currentTarget);
-        if (firstCardChecked === secondCardChecked){
-            console.log("these are the same")
-        }else{
-            console.log("not the same");
-        }
+function cardClick() {
+    if (!canIClick) {
+        return;
     }
+        if (firstSelectedCard === null) {
+            firstSelectedCard = $(event.currentTarget);
+            hideCard(firstSelectedCard);
+        } else {
+            secondSelectedCard = $(event.currentTarget);
+            hideCard(secondSelectedCard);
+            if (firstSelectedCard.find("img").attr("src") === secondSelectedCard.find("img").attr("src")){
+                match_counter++;
+                firstSelectedCard = null;
+                secondSelectedCard = null;
+                if (match_counter === total_possible_matches){
+                    alert("You have won")
+                }
+            } else {
+                canIClick = false;
+                setTimeout(function () {
+                    showCard(firstSelectedCard);
+                    showCard(secondSelectedCard);
+                    firstSelectedCard = null;
+                    secondSelectedCard = null;
+                    canIClick = true;
+                }, 2000);
+            }
+        }
 }
 
 function hideCard(card){
-        $(event.currentTarget).addClass('hide');
+    $(card).addClass('hide');
+}
+
+function showCard(card){
+    $(card).removeClass('hide')
 }
