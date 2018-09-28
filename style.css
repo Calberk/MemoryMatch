@@ -34,14 +34,28 @@ body {
     height: 90%;
     width: 90px;
 }
-
 .title {
-    width: 40%;
+    width: 38%;
     height: 100%;
     font-size: 40px;
-    text-align: center;
-    vertical-align: top;
     color: white;
+    vertical-align: top;
+    font-family: Clash;
+}
+
+.title1 {
+    width: 100%;
+    height: 30%;
+    background-color: black;
+}
+
+.title2 {
+    width: 100%;
+    height: 100%;
+    font-size: 40px;
+    color: goldenrod;
+    text-align: center;
+    text-shadow: 1px 1px 2px darkblue, 0 0 10px white, 0 0 20px black;
     font-family: Clash;
 }
 
@@ -100,13 +114,12 @@ body {
 .game-area {
     width: 78%;
     height: 100%;
-    background: wheat;
+    background: black;
+    border: 5px solid midnightblue;
 }
 
 .board-img {
     background-image: url("images/background-crop.jpg");
-
-
 }
 
 .card-container {
@@ -134,7 +147,7 @@ body {
     left: 0;
     border-radius: 15px;
     position: absolute;
-    background-color: wheat;
+    background-color: black;
 }
 
 .back, .back-img{
@@ -143,15 +156,31 @@ body {
     top: 0;
     left: 0;
     border-radius: 15px;
+    text-shadow: 5px 5px red;
     position: absolute;
 }
 
 .extras-area {
-    width: 10%;
+    width: 9%;
     height: 100%;
     background-color: pink;
 }
 
 .hide .back{
     display: none;
+}
+
+.panel, .flip {
+    padding: 5px;
+    text-align: center;
+
+}
+
+.panel {
+    padding: 500px;
+    display: none;
+}
+
+.shadow {
+    box-shadow: 10px 10px 20px darkred;
 }

@@ -3,11 +3,12 @@ $(document).ready(initializeApp);
 
 function initializeApp(){
     applyHandler();
+    clickPullDownMenu();
 }
 
 var firstSelectedCard = null;
 var secondSelectedCard = null;
-var total_possible_matches = 2;
+var total_possible_matches = 1;
 var match_counter = 0;
 var canIClick = true;
 
@@ -24,8 +25,11 @@ function cardClick() {
             hideCard(firstSelectedCard);
         } else {
             secondSelectedCard = $(event.currentTarget);
+            if($(secondSelectedCard).hasClass(".hide")) {
+                return;
+            }
             hideCard(secondSelectedCard);
-            if (firstSelectedCard.find("img").attr("src") === secondSelectedCard.find("img").attr("src")){
+            if (firstSelectedCard.find(".front > img").attr("src") === secondSelectedCard.find(".front > img").attr("src")){
                 match_counter++;
                 firstSelectedCard = null;
                 secondSelectedCard = null;
@@ -51,4 +55,10 @@ function hideCard(card){
 
 function showCard(card){
     $(card).removeClass('hide')
+}
+
+function clickPullDownMenu(){
+    $(".flip").click(function(){
+        $(".panel").slideToggle("slow");
+    });
 }
