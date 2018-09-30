@@ -12,9 +12,15 @@ body {
 
 .head-container {
     width: 100%;
-    height: 15%;
-    background-color: black;
+    height: 10%;
+    position: relative;
     font-family: Clash;
+}
+
+.banner {
+    background-image: url("images/banner1.jpg");
+    background-position: center;
+    height: auto;
 }
 
 .logo, .title, .links, .about-me {
@@ -22,45 +28,62 @@ body {
     font-size: 1rem;
 }
 
-.logo, .logo-img{
-    width: 30%;
+.logo {
+    width: 33%;
     height: 100%;
     vertical-align: top;
+    position: relative;
 }
 
 .logo-img {
     position: relative;
-    left: 10%;
-    height: 90%;
-    width: 90px;
+    left: 8%;
+    top: 10px;
+    height: 120px;
+    width: 130px;
+}
+
+.logo-img2 {
+    position: relative;
+    left: 65%;
+    top: 10px;
+    height: 120px;
+    width: 130px;
 }
 .title {
-    width: 38%;
+    width: 33%;
     height: 100%;
     font-size: 40px;
     color: white;
+    position: relative;
     vertical-align: top;
     font-family: Clash;
-}
-
-.title1 {
-    width: 100%;
-    height: 30%;
-    background-color: black;
 }
 
 .title2 {
     width: 100%;
     height: 100%;
-    font-size: 40px;
-    color: goldenrod;
+    color: gold;
     text-align: center;
-    text-shadow: 1px 1px 2px darkblue, 0 0 10px white, 0 0 20px black;
+    text-shadow: 2px 5px 2px black, 0 0 15px black, 0 0 20px black;
+    top: 15px;
+    font-size: 40px;
+    position: relative;
     font-family: Clash;
 }
 
+.flag {
+    width: 500px;
+    height: 100px;
+    background-image: url("images/flag.jpg");
+    background-repeat: no-repeat;
+    background-size: 400px;
+    left: 55px;
+    position: relative;
+}
+
 .links {
-    width: 30%;
+    width: 33%;
     height: 100%;
     color: white;
 }
@@ -74,37 +97,66 @@ body {
 .game-info, .game-area, .extras-area {
     display: inline-block;
     font-size: 1rem;
-    vertical-align: top;
+    color: gold;
+    text-align: center;
+    text-shadow: 2px 5px 2px black, 0 0 15px black, 0 0 20px black;
 }
 
 .game-info {
     width: 12%;
     height: 100%;
-    background-color: orange;
+    background-color: black;
+    font-size: 20px;
+    vertical-align: top;
+    border: 10px ridge gold;
+    font-family: Clash;
 }
 
 .games-played {
     width: 100%;
     height: 20%;
-    background-color: #8c8c8c;
+    top: 30%;
+    background-color: #black;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: Clash;
 }
 
 .attempts {
     width: 100%;
     height: 20%;
-    background-color: #755c30;
+    background-color: #black;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: Clash;
 }
 
 .accuracy {
     width: 100%;
     height: 20%;
-    background-color: hotpink;
+    background-color: black;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: Clash;
 }
 
 .reset {
     width: 100%;
     height: 10%;
-    background-color: #4cae4c;
+}
+
+.stat-flag {
+    width: 100px;
+    height: 90px;
+    background-image: url("images/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 #reset-game {
@@ -112,14 +164,14 @@ body {
 }
 
 .game-area {
-    width: 78%;
+    width: 75%;
     height: 100%;
-    background: black;
-    border: 5px solid midnightblue;
+    border: 10px ridge gold;
 }
 
 .board-img {
-    background-image: url("images/background-crop.jpg");
+    background-image: url("images/background.png");
+    background-size: contain;
 }
 
 .card-container {
@@ -147,7 +199,6 @@ body {
     left: 0;
     border-radius: 15px;
     position: absolute;
-    background-color: black;
 }
 
 .back, .back-img{
@@ -156,31 +207,21 @@ body {
     top: 0;
     left: 0;
     border-radius: 15px;
-    text-shadow: 5px 5px red;
     position: absolute;
 }
 
 .extras-area {
     width: 9%;
     height: 100%;
-    background-color: pink;
+    border: 10px ridge gold;
+    background-color: black;
+    vertical-align: top;
 }
 
 .hide .back{
     display: none;
 }
 
-.panel, .flip {
-    padding: 5px;
-    text-align: center;
-
-}
-
-.panel {
-    padding: 500px;
-    display: none;
-}
-
 .shadow {
-    box-shadow: 10px 10px 20px darkred;
+    box-shadow: 10px 10px 20px black;
 }
