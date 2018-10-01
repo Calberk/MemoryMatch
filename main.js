@@ -5,7 +5,8 @@ function initializeApp(){
     applyHandler();
     startMusic();
     display_stats()
-    randomize();
+    cardRandomizer();
+    imageRandomizer();
 }
 
 var firstSelectedCard = null;
@@ -16,7 +17,44 @@ var canIClick = true;
 var games_played = 0;
 var attempts = 0;
 var accuracy = 0;
-var images = ["archers.png", "archers.png", "baby_dragon.png", "baby_dragon.png", "barbarians.png", "barbarians.png", "goblin.png", "goblin.png", "golem.png", "golem.png", "ice_wizard.png"];
+var cardImages = [
+    "images/archers.png",
+    "images/archers.png",
+    "images/baby_dragon.png",
+    "images/baby_dragon.png",
+    "images/barbarians.png",
+    "images/barbarians.png",
+    "images/goblin.png",
+    "images/goblin.png",
+    "images/golem.png",
+    "images/golem.png",
+    "images/ice_wizard.png",
+    "images/ice_wizard.png",
+    "images/prince.png",
+    "images/prince.png",
+    "images/princess.png",
+    "images/princess.png",
+    "images/witch.png",
+    "images/witch.png"
+];
+
+var backgroundImages = [
+    "images/background/background-opt1.jpg",
+    "images/background/background-opt2.jpg",
+    "images/background/background-opt3.jpg",
+    "images/background/background-opt4.jpg",
+    "images/background/background-opt5.jpg",
+    "images/background/background-opt6.jpg",
+    "images/background/background-opt7.jpg",
+    "images/background/background-opt8.png",
+    "images/background/background-opt9.jpg",
+    "images/background/background-opt10.png",
+    "images/background/background-opt11.jpg",
+    "images/background/background-opt12.jpg",
+    "images/background/background-opt13.png",
+    "images/background/background-opt14.jpg",
+
+]
 
 function applyHandler() {
     $(".card").click(cardClick)
@@ -51,7 +89,30 @@ function cardClick() {
             display_stats()
 }
 
-function randomize(){
+function setupGameCards(){
+    for (var cardCreated = 0; cardCreated <= cardImages.length; cardCreated++){
+        var randomCard = cardImages[cardCreated];
+        var divToAppend = $(".front");
+        var imgCreated = $("<img>").addClass("front-img").attr("src", randomCard);
+        imgCreated.appendTo(divToAppend);
+    }
+}
+
+function cardRandomizer() {
+    var swappedImage;
+    for (var shrinkingImageIndex = cardImages.length - 1; shrinkingImageIndex >= 0; shrinkingImageIndex--) {
+        var randomizedIndex = Math.floor(Math.random() * shrinkingImageIndex);
+        swappedImage = cardImages[shrinkingImageIndex];
+        cardImages[shrinkingImageIndex] = cardImages[randomizedIndex];
+        cardImages[randomizedIndex] = swappedImage;
+    }
+    setupGameCards()
+}
+
+function imageRandomizer() {
+    var randomizedIndex = Math.floor(Math.random() * backgroundImages.length);
+    var randomBackground = backgroundImages[randomizedIndex];
+    $("section").addClass("board-img").css("background-image", "url(" + randomBackground +")");
 
 }
 
@@ -83,9 +144,9 @@ function display_stats(){
     //$(".attempts").value = attempts;
     $(".attempts .value").text(attempts);
     if(attempts === 0){
-        $(".accuracy .value").text("0.00%");
+        $(".accuracy .accuracyValue").text("0.00%");
     }else{
-        $(".accuracy .value").text(updateAccuracy());
+        $(".accuracy .accuracyValue").text(updateAccuracy());
         }
 }
 
