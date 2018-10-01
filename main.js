@@ -2,11 +2,11 @@ $(document).ready(initializeApp);
 
 
 function initializeApp(){
-    applyHandler();
-    startMusic();
-    display_stats()
     cardRandomizer();
     imageRandomizer();
+    startMusic();
+    display_stats()
+    applyHandler();
 }
 
 var firstSelectedCard = null;
@@ -57,7 +57,7 @@ var backgroundImages = [
 ]
 
 function applyHandler() {
-    $(".card").click(cardClick)
+    $(".card").click(cardClick);
     $("#reset-game").click(resetPress);
 }
 
@@ -77,24 +77,34 @@ function cardClick() {
             attempts++;
             if (firstSelectedCard.find(".front > img").attr("src") === secondSelectedCard.find(".front > img").attr("src")) {
                 match_counter++;
+                setTimeout(matchedCardsTimeout(), 1000);
                 firstSelectedCard = null;
                 secondSelectedCard = null;
                 if (match_counter === total_possible_matches) {
                 }
             } else {
                 canIClick = false;
-                timeOut()
+                timeOut();
             }
         }
             display_stats()
 }
 
 function setupGameCards(){
-    for (var cardCreated = 0; cardCreated <= cardImages.length; cardCreated++){
+    for (var cardCreated = 0; cardCreated < cardImages.length; cardCreated++){
         var randomCard = cardImages[cardCreated];
-        var divToAppend = $(".front");
+        var divContainer = $("<div>").addClass("card-container");
+        var divCard = $("<div>").addClass("card shadow");
+        var divFront = $("<div>").addClass("front");
         var imgCreated = $("<img>").addClass("front-img").attr("src", randomCard);
-        imgCreated.appendTo(divToAppend);
+        var divBack = $("<div>").addClass("back");
+        var divBackImg = $("<img>").addClass("back-img").attr("src", "images/royale-logo.jpg");
+        divFront.append(imgCreated);
+        divCard.append(divFront);
+        divBack.append(divBackImg);
+        divCard.append(divBack);
+        divContainer.append(divCard);
+        $("section").append(divContainer);
     }
 }
 
@@ -125,13 +135,18 @@ function showCard(card){
 }
 
 function timeOut(){
-    setTimeout(function () {
+    setTimeout(function() {
         showCard(firstSelectedCard);
         showCard(secondSelectedCard);
         firstSelectedCard = null;
         secondSelectedCard = null;
         canIClick = true;
-    }, 1500);
+    }   ,1000);
+}
+
+function matchedCardsTimeout(){
+    firstSelectedCard.remove();
+    secondSelectedCard.remove();
 }
 
 function updateAccuracy(){
@@ -152,21 +167,28 @@ function display_stats(){
 
 function resetPress(){
     games_played++;
+    resetSound();
     reset_stats();
     display_stats();
-    randomize();
-    $(".card").removeClass('hide');
+    $(".card-container").remove();
+    cardRandomizer();
+    applyHandler();
+
 }
 
 function reset_stats(){
     accuracy = 0;
     match_counter = 0;
     attempts = 0;
-    display_stats();
 }
 
 function startMusic() {
     var player = new Audio('sounds/clash_royale_battle.mp3');
     player.play();
+    loop = true;
 }
 
+function resetSound(){
+    var ring = new Audio('sounds/clash_supercell.mp3');
+    ring.play();
+}

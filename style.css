@@ -74,7 +74,7 @@ body {
 }
 
 .flag {
-    width: 400px;
+    width: 450px;
     height: 100px;
     background-image: url("images/flag.jpg");
     background-repeat: no-repeat;
@@ -100,7 +100,7 @@ body {
     font-size: 1rem;
     color: gold;
     text-align: center;
-    text-shadow: 2px 5px 2px black, 0 0 15px black, 0 0 20px black;
+    text-shadow: 2px 2px 2px black, 2px 0px 10px navajowhite, 0 0 5px red;
 }
 
 .game-info {
@@ -137,7 +137,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    top: 10%;
+    top: 5%;
     position: relative;
     font-family: Clash;
 }
@@ -150,15 +150,15 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    top: 20%;
+    top: 10%;
     position: relative;
     font-family: Clash;
 }
 
 .reset {
     width: 100%;
-    height: 10%;
-    top: 30%;
+    height: 20%;
+    top: 20%;
     position: relative;
 }
 
@@ -174,7 +174,8 @@ body {
 }
 
 .value {
-    top: 35%;
+    top: 33%;
+    right: 2%;
     position: relative;
 }
 
@@ -185,7 +186,26 @@ body {
 }
 
 #reset-game {
+    background-size: contain;
+    width: 100px;
+    height: 110px;
+    bottom: 10%;
+    left: 8%;
+    position: relative;
+}
 
+.vertical-font {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    text-align: justify;
+    bottom: 12%;
+    left: 5%;
+    position: relative;
+    color: red;
+}
+
+#reset-game, .vertical-font {
+    display: inline-block;
 }
 
 .game-area {
