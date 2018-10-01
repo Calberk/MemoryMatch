@@ -5,8 +5,9 @@ function initializeApp(){
     cardRandomizer();
     imageRandomizer();
     startMusic();
-    display_stats()
+    display_stats();
     applyHandler();
+    $("#reset-game").click(resetPress);
 }
 
 var firstSelectedCard = null;
@@ -58,7 +59,7 @@ var backgroundImages = [
 
 function applyHandler() {
     $(".card").click(cardClick);
-    $("#reset-game").click(resetPress);
+
 }
 
 function cardClick() {
@@ -67,6 +68,7 @@ function cardClick() {
     }
         if (firstSelectedCard === null) {
             firstSelectedCard = $(event.currentTarget);
+            pop();
             hideCard(firstSelectedCard);
         } else {
             secondSelectedCard = $(event.currentTarget);
@@ -77,12 +79,16 @@ function cardClick() {
             attempts++;
             if (firstSelectedCard.find(".front > img").attr("src") === secondSelectedCard.find(".front > img").attr("src")) {
                 match_counter++;
-                setTimeout(matchedCardsTimeout(), 1000);
+                matchSound();
+                firstSelectedCard.remove();
+                secondSelectedCard.remove();
                 firstSelectedCard = null;
                 secondSelectedCard = null;
                 if (match_counter === total_possible_matches) {
+                gameWinSound();
                 }
             } else {
+                misMatchSound();
                 canIClick = false;
                 timeOut();
             }
@@ -144,11 +150,6 @@ function timeOut(){
     }   ,1000);
 }
 
-function matchedCardsTimeout(){
-    firstSelectedCard.remove();
-    secondSelectedCard.remove();
-}
-
 function updateAccuracy(){
         var accuracyStat = ((match_counter/attempts) * 100).toFixed(2) + "%";
         return accuracyStat;
@@ -166,7 +167,6 @@ function display_stats(){
 }
 
 function resetPress(){
-    games_played++;
     resetSound();
     reset_stats();
     display_stats();
@@ -177,6 +177,7 @@ function resetPress(){
 }
 
 function reset_stats(){
+    games_played++;
     accuracy = 0;
     match_counter = 0;
     attempts = 0;
@@ -184,11 +185,35 @@ function reset_stats(){
 
 function startMusic() {
     var player = new Audio('sounds/clash_royale_battle.mp3');
-    player.play();
-    loop = true;
+    player.play().loop;
+
+
+
+
+
 }
 
 function resetSound(){
-    var ring = new Audio('sounds/clash_supercell.mp3');
+    var ring = new Audio('sounds/reset.mp3');
+    ring.play();
+}
+
+function matchSound(){
+    var ring = new Audio('sounds/gold.mp3');
+    ring.play();
+}
+
+function misMatchSound(){
+    var ring = new Audio('sounds/barb_king.mp3');
+    ring.play();
+}
+
+function gameWinSound(){
+    var ring = new Audio('sounds/game_win.mp3');
+    ring.play();
+}
+
+function pop(){
+    var ring = new Audio('sounds/pop.mp3');
     ring.play();
 }

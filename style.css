@@ -44,6 +44,14 @@ body {
     width: 130px;
 }
 
+/*.logo-img {*/
+    /*position: relative;*/
+    /*left: 50%;*/
+    /*top: 10px;*/
+    /*height: 120px;*/
+    /*width: 130px;*/
+/*}*/
+
 .logo-img2 {
     position: relative;
     left: 25%;
@@ -222,21 +230,22 @@ body {
 }
 
 .card-container {
-    width: 16.6%;
-    height: 33.33%;
+    width: 16.4%;
+    height: 32.8%;
     border-radius: 15px;
     float: left;
     margin: 0;
 }
 
 .card {
-    width: 80%;
-    height: 80%;
-    top: 10%;
-    left: 10%;
+    width: 97%;
+    height: 97%;
+    top: 2%;
+    left: 2%;
     position: relative;
     border-radius: 15px;
     margin: 0;
+    border: 5px ridge goldenrod;
 }
 
 .front, .front-img {
@@ -262,8 +271,6 @@ body {
     height: 100%;
     border: 10px ridge gold;
     background-color: black;
-    vertical-align: top;
-    position: relative;
 }
 
 .hide .back{
