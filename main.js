@@ -68,6 +68,7 @@ function cardClick() {
     }
         if (firstSelectedCard === null) {
             firstSelectedCard = $(event.currentTarget);
+            console.log('current target', $(event.currentTarget))
             pop();
             hideCard(firstSelectedCard);
         } else {
