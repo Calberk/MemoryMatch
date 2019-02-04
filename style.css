@@ -13,16 +13,19 @@ body {
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
-    background-image: url("images/banner1.jpg");
+    background-image: url("images/board-background.png");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; 
 }
 
 .head-container {
-    width: 100%;
-    height: 15%;
+    /* width: 100%; */
+    height: 15vh;
     position: relative;
     font-family: Clash;
+    /* background-image: url("images/banner1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; */
 }
 
 .banner {
@@ -123,16 +126,18 @@ body {
     font-size: 1rem;
     color: gold;
     text-align: center;
-    text-shadow: 2px 2px 2px black, 2px 0px 10px navajowhite, 0 0 5px red;
+    text-shadow: 2px 2px 2px black, 0 0 15px black, 0 0 20px black;
+    /* text-shadow: 2px 2px 2px black, 2px 0px 10px navajowhite, 0 0 5px red; */
 }
 
 .game-info {
-    width: 10vw;
+    width: 14vw;
     height: 85vh;
     /* background-color: black; */
     font-size: 20px;
     vertical-align: top;
     border: 10px ridge gold;
+    /* border-right: none; */
     font-family: Clash;
 }
 
@@ -144,7 +149,6 @@ body {
 .games-played {
     width: 100%;
     height: 20%;
-    /* background-color: black; */
     font-size: 20px;
     display: flex;
     flex-direction: column;
@@ -152,10 +156,16 @@ body {
     font-family: Clash;
 }
 
+.infoContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 .attempts {
     width: 100%;
     height: 20%;
-    /* background-color: black; */
     font-size: 20px;
     display: flex;
     flex-direction: column;
@@ -167,7 +177,6 @@ body {
 .accuracy {
     width: 100%;
     height: 20%;
-    /* background-color: black; */
     font-size: 20px;
     display: flex;
     flex-direction: column;
@@ -180,6 +189,7 @@ body {
     width: 100%;
     height: 20%;
     position: relative;
+    cursor: pointer;
 }
 
 .value {
@@ -196,29 +206,17 @@ body {
 
 #reset-game {
     background-size: contain;
-    width: 100px;
-    height: 110px;
+    width: 50%;
+    height: 65%;
     position: relative;
+    margin: auto;
 }
-
-/* .vertical-font {
-    writing-mode: vertical-lr;
-    text-orientation: upright;
-    text-align: justify;
-    bottom: 12%;
-    left: 5%;
-    position: relative;
-    color: red;
-}
-
-#reset-game, .vertical-font {
-    display: inline-block;
-} */
 
 .game-area {
-    width: 80vw;
+    width: 86vw;
     height: 85vh;
     border: 10px ridge gold;
+    border-left: none;
 }
 
 .board-img {
@@ -256,8 +254,6 @@ body {
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
     height: 100%;
-    display: flex;
-    align-items: center;
 }
 
 .back{
@@ -271,6 +267,7 @@ body {
 }
 
 .front-img{
+    height: 100%;
     width: 100%;
     top: 0;
     left: 0;
@@ -289,12 +286,9 @@ body {
     width: 10vw;
     height: 85vh;
     border: 10px ridge gold;
+    /* border-left:none; */
     /* background-color: black; */
 }
-
-/* .hide .back{
-    display: none;
-} */
 
 .shadow {
     box-shadow: 10px 10px 20px black;
@@ -303,4 +297,8 @@ body {
 .rotate {
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
+}
+
+.hide {
+    display: none;
 }
