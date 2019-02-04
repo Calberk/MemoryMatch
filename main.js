@@ -4,9 +4,9 @@ $(document).ready(initializeApp);
 function initializeApp(){
     cardRandomizer();
     imageRandomizer();
+    applyHandler();
     startMusic();
     display_stats();
-    applyHandler();
     $("#reset-game").click(resetPress);
 }
 
@@ -58,7 +58,7 @@ var backgroundImages = [
 ]
 
 function applyHandler() {
-    $(".card").click(cardClick);
+    $(".card").click('.back > img', cardClick);
 
 }
 
@@ -66,41 +66,46 @@ function cardClick() {
     if (!canIClick) {
         return;
     }
-        if (firstSelectedCard === null) {
-            firstSelectedCard = $(event.currentTarget);
-            pop();
-            hideCard(firstSelectedCard);
+    if (firstSelectedCard === null) {
+        firstSelectedCard = event.currentTarget;
+        hideCard(firstSelectedCard);
+        // firstSelectedCard = $(event.currentTarget);
+        // pop();
+        
+    } else {
+        hideCard(event.currentTarget);
+        secondSelectedCard = event.currentTarget;
+        // secondSelectedCard = $(event.currentTarget);
+        // if (secondSelectedCard.hasClass("hide")) {
+        //     return;
+        // }
+        // hideCard(secondSelectedCard);
+        // attempts++;
+        if ($(firstSelectedCard).find(".front > img").attr("src") === $(secondSelectedCard).find(".front > img").attr("src")) {
+            match_counter++;
+            matchSound();
+            $(firstSelectedCard).find(".front > img").animate({opacity: '0',}, 1000);
+            $(secondSelectedCard).find(".front > img").animate({opacity: '0',}, 1000);
+            firstSelectedCard = null;
+            secondSelectedCard = null;
+            if (match_counter === total_possible_matches) {
+            gameWinSound();
+            }
         } else {
-            secondSelectedCard = $(event.currentTarget);
-            if (secondSelectedCard.hasClass("hide")) {
-                return;
-            }
-            hideCard(secondSelectedCard);
             attempts++;
-            if (firstSelectedCard.find(".front > img").attr("src") === secondSelectedCard.find(".front > img").attr("src")) {
-                match_counter++;
-                matchSound();
-                firstSelectedCard.remove();
-                secondSelectedCard.remove();
-                firstSelectedCard = null;
-                secondSelectedCard = null;
-                if (match_counter === total_possible_matches) {
-                gameWinSound();
-                }
-            } else {
-                misMatchSound();
-                canIClick = false;
-                timeOut();
-            }
+            misMatchSound();
+            canIClick = false;
+            timeOut();
         }
-            display_stats()
+    }
+        display_stats()
 }
 
 function setupGameCards(){
     for (var cardCreated = 0; cardCreated < cardImages.length; cardCreated++){
         var randomCard = cardImages[cardCreated];
         var divContainer = $("<div>").addClass("card-container");
-        var divCard = $("<div>").addClass("card shadow");
+        var divCard = $("<div>").addClass("card");
         var divFront = $("<div>").addClass("front");
         var imgCreated = $("<img>").addClass("front-img").attr("src", randomCard);
         var divBack = $("<div>").addClass("back");
@@ -133,21 +138,21 @@ function imageRandomizer() {
 }
 
 function hideCard(card){
-    $(card).addClass('hide');
-}
-
-function showCard(card){
-    $(card).removeClass('hide')
+    // $(card).addClass('hide');
+    $(card).addClass('rotate');
+    
 }
 
 function timeOut(){
-    setTimeout(function() {
-        showCard(firstSelectedCard);
-        showCard(secondSelectedCard);
-        firstSelectedCard = null;
-        secondSelectedCard = null;
-        canIClick = true;
-    }   ,1000);
+    setTimeout(unFlipCard, 1000);
+}
+
+function unFlipCard(){
+    $(firstSelectedCard).removeClass('rotate');
+    $(secondSelectedCard).removeClass('rotate');
+    firstSelectedCard = null;
+    secondSelectedCard = null;
+    canIClick = true;
 }
 
 function updateAccuracy(){
