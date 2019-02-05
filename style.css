@@ -57,34 +57,11 @@ body {
     top: 6%; */
     height: 80%;
     position: relative;
+    bottom: 3px;
 }
 
-/* .logo-img2 {
-    position: relative;
-    left: 25%;
-    top: 6%;
-    height: 90%;
-    width: 25%;
-    position: relative;
-} */
-
-/*.logo-img {*/
-    /*position: relative;*/
-    /*left: 50%;*/
-    /*top: 10px;*/
-    /*height: 120px;*/
-    /*width: 130px;*/
-/*}*/
-
-/*.logo-img2 {*/
-    /*position: relative;*/
-    /*left: 25%;*/
-    /*top: 10px;*/
-    /*height: 120px;*/
-    /*width: 130px;*/
-/*}*/
 .title {
-    width: 25%;
+    width: 45%;
     height: 100%;
     font-size: 40px;
     color: white;
@@ -148,9 +125,10 @@ body {
     width: 14vw;
     height: 88vh;
     /* background-color: black; */
-    font-size: 20px;
+    font-size: 18px;
     vertical-align: top;
     border: 10px ridge gold;
+    background-color: rgba(0,0,0, 0.5);
     /* border-right: none; */
     font-family: Clash;
 }
@@ -163,7 +141,6 @@ body {
 .games-played {
     width: 100%;
     height: 20%;
-    font-size: 20px;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -180,7 +157,6 @@ body {
 .attempts {
     width: 100%;
     height: 20%;
-    font-size: 20px;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -191,22 +167,11 @@ body {
 .accuracy {
     width: 100%;
     height: 20%;
-    font-size: 20px;
     display: flex;
     flex-direction: column;
     justify-content: start;
     position: relative;
     font-family: Clash;
-}
-
-.reset {
-    width: 100%;
-    height: 20%;
-    position: relative;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .value {
@@ -220,16 +185,25 @@ body {
     position: relative;
 }
 
+.reset {
+    width: 100%;
+    height: 20%;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 #reset-game {
     background-size: contain;
-    width: 50%;
-    height: 65%;
+    height: 60%;
     position: relative;
     margin: auto;
 }
 
 .game-area {
-    width: 86vw;
+    width: 72vw;
     height: 88vh;
     border: 10px ridge gold;
     border-left: none;
@@ -242,21 +216,25 @@ body {
     background-color: black;
 }
 
-.card-container {
+/* .card-container {
     width: 16.6%;
     height: 33%;
-    /* border-radius: 15px; */
     float: left;
     margin: 0;
     cursor: pointer;
-}
+} */
 
 .card {
-    height: 100%;
+    /* height: 100%;
     top: 2%;
-    left: 2%;
+    left: 2%; */
     position: relative;
     /* border-radius: 15px; */
+    width: 19.9%;
+    height: 24.8%;
+    left: 0.3%;
+    top: 0.3%;
+    float: left;
     margin: 0;
     transition: all 0.5s ease;
     transform-style: preserve-3d;
@@ -299,9 +277,10 @@ body {
 }
 
 .extras-area {
-    width: 10vw;
-    height: 85vh;
+    width: 14vw;
+    height: 88vh;
     border: 10px ridge gold;
+    background-color: rgba(0,0,0, 0.5);
     /* border-left:none; */
     /* background-color: black; */
 }
@@ -317,4 +296,91 @@ body {
 
 .hide {
     display: none;
+}
+
+/* PORTRAIT */
+
+@media  (orientation: portrait) {
+
+.logo-img {
+    position: relative;
+    /* left: 50%;
+    top: 6%; */
+    height: 60%;
+    position: relative;
+}
+
+.game-info {
+    width: 100vw;
+    height: auto;
+    border-bottom: none;
+}
+
+.infoContainer {
+    height: 80%;
+    background-color: rgba(0,0,0, 0.5);
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+        font-family: Clash;
+}
+
+.games-played {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+}
+
+.attempts {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+}
+
+.accuracy {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+}
+
+.reset {
+    height: 100px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#reset-game {
+    /* background-size: contain; */
+    width: auto;
+    height: 60%;
+    position: relative;
+    margin: 0 auto;
+}
+
+.game-area{
+    width: 100vw;
+    height: 65vh;
+    border-left: 10px ridge gold;
+}
+
+.card {
+    width: 19.9%;
+    height: 24.8%;
+    left: 0.3%;
+    top: 0.3%;
+}
+
+.extras-area {
+    width: 100vw;
+    height: 9vh;
+    border-top: none;
+} 
+
+
 }
