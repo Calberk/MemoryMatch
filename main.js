@@ -73,6 +73,10 @@ function cardClick() {
         // pop();
         
     } else {
+            secondSelectedCard = event.currentTarget;
+            if ($(secondSelectedCard).hasClass("rotate")) {
+                return;
+            }
         hideCard(event.currentTarget);
         secondSelectedCard = event.currentTarget;
         // secondSelectedCard = $(event.currentTarget);
@@ -84,12 +88,11 @@ function cardClick() {
         if ($(firstSelectedCard).find(".front > img").attr("src") === $(secondSelectedCard).find(".front > img").attr("src")) {
             match_counter++;
             matchSound();
-            $(firstSelectedCard).find(".front > img").animate({opacity: '0',}, 1000);
-            $(secondSelectedCard).find(".front > img").animate({opacity: '0',}, 1000);
-            firstSelectedCard = null;
-            secondSelectedCard = null;
+            $(firstSelectedCard).find(".front > img").animate({opacity: '0',}, 1500);
+            $(secondSelectedCard).find(".front > img").animate({opacity: '0',}, 1500);
+            setTimeout(clearCard, 1500)
             if (match_counter === total_possible_matches) {
-            gameWinSound();
+                gameWinSound();
             }
         } else {
             attempts++;
@@ -145,6 +148,13 @@ function hideCard(card){
 
 function timeOut(){
     setTimeout(unFlipCard, 1000);
+}
+
+function clearCard(){
+    $(firstSelectedCard).addClass('hide');
+    $(secondSelectedCard).addClass('hide');
+    firstSelectedCard = null;
+    secondSelectedCard = null;
 }
 
 function unFlipCard(){
