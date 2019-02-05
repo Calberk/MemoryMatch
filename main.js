@@ -19,14 +19,12 @@ var games_played = 0;
 var attempts = 0;
 var accuracy = 0;
 var cardImages = [
-    "images/archers.png",
-    "images/archers.png",
+    "images/fire_spirits.png",
+    "images/fire_spirits.png",
     "images/baby_dragon.png",
     "images/baby_dragon.png",
-    "images/barbarians.png",
-    "images/barbarians.png",
-    "images/goblin.png",
-    "images/goblin.png",
+    "images/snow_spirits.png",
+    "images/snow_spirits.png",
     "images/golem.png",
     "images/golem.png",
     "images/ice_wizard.png",
@@ -36,7 +34,11 @@ var cardImages = [
     "images/princess.png",
     "images/princess.png",
     "images/witch.png",
-    "images/witch.png"
+    "images/witch.png",
+    "images/elixir.png",
+    "images/elixir.png",
+    "images/tornado.png",
+    "images/tornado.png",    
 ];
 
 var backgroundImages = [
@@ -54,7 +56,7 @@ var backgroundImages = [
     "images/background/background-opt12.jpg",
     "images/background/background-opt13.png",
     "images/background/background-opt14.jpg",
-
+    "images/background/background-opt15.jpg",
 ]
 
 function applyHandler() {
@@ -90,7 +92,9 @@ function cardClick() {
             matchSound();
             $(firstSelectedCard).find(".front > img").animate({opacity: '0',}, 1500);
             $(secondSelectedCard).find(".front > img").animate({opacity: '0',}, 1500);
-            setTimeout(clearCard, 1500)
+            // setTimeout(clearCard, 1500);
+            firstSelectedCard = null;
+            secondSelectedCard = null;
             if (match_counter === total_possible_matches) {
                 gameWinSound();
             }
@@ -117,8 +121,8 @@ function setupGameCards(){
         divCard.append(divFront);
         divBack.append(divBackImg);
         divCard.append(divBack);
-        divContainer.append(divCard);
-        $("section").append(divContainer);
+        // divContainer.append(divCard);
+        $("section").append(divCard);
     }
 }
 
@@ -146,15 +150,15 @@ function hideCard(card){
     
 }
 
-function timeOut(){
-    setTimeout(unFlipCard, 1000);
-}
-
 function clearCard(){
-    $(firstSelectedCard).addClass('hide');
-    $(secondSelectedCard).addClass('hide');
+    $(firstSelectedCard).addClass('hide').removeClass('rotate');
+    $(secondSelectedCard).addClass('hide').removeClass('rotate');
     firstSelectedCard = null;
     secondSelectedCard = null;
+}
+
+function timeOut(){
+    setTimeout(unFlipCard, 1000);
 }
 
 function unFlipCard(){
@@ -185,10 +189,10 @@ function resetPress(){
     resetSound();
     reset_stats();
     display_stats();
-    $(".card-container").remove();
+    $(".card").remove();
     cardRandomizer();
     applyHandler();
-
+    imageRandomizer();
 }
 
 function reset_stats(){
@@ -196,6 +200,8 @@ function reset_stats(){
     accuracy = 0;
     match_counter = 0;
     attempts = 0;
+    firstSelectedCard = null;
+    secondSelectedCard = null;
 }
 
 function startMusic() {
