@@ -20,7 +20,7 @@ body {
 
 .head-container {
     /* width: 100%; */
-    height: 15vh;
+    height: 12vh;
     position: relative;
     font-family: Clash;
     /* background-image: url("images/banner1.jpg");
@@ -28,45 +28,45 @@ body {
     background-size: cover; */
 }
 
+.bannerContainer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .banner {
     background-position: center;
 }
 
-.logo, .title, .links, .about-me {
+.logo, .title {
     display: inline-block;
     font-size: 1rem;
 }
 
 .logo {
-    width: 33%;
     height: 100%;
-    /*vertical-align: top;*/
-    /*position: relative;*/
-}
-
-.links {
-    width: 33%;
-    height: 100%;
-    /*color: white;*/
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
 }
 
 .logo-img {
     position: relative;
-    left: 50%;
-    top: 6%;
-    height: 90%;
-    width: 25%;
+    /* left: 50%;
+    top: 6%; */
+    height: 80%;
     position: relative;
 }
 
-.logo-img2 {
+/* .logo-img2 {
     position: relative;
     left: 25%;
     top: 6%;
     height: 90%;
     width: 25%;
     position: relative;
-}
+} */
 
 /*.logo-img {*/
     /*position: relative;*/
@@ -84,22 +84,28 @@ body {
     /*width: 130px;*/
 /*}*/
 .title {
-    width: 33%;
+    width: 25%;
     height: 100%;
     font-size: 40px;
     color: white;
     position: relative;
     vertical-align: top;
     font-family: Clash;
+    display: flex;
+    flex-direction: column
 }
 
-.title2 {
-    width: 100%;
+.title-container {
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-title {   
     color: gold;
     text-align: center;
     text-shadow: 2px 5px 2px black, 0 0 15px black, 0 0 20px black;
-    top: 15px;
     font-size: 40px;
     position: relative;
     font-family: Clash;
@@ -107,32 +113,40 @@ body {
 
 .flag {
     width: 100%;
-    height: 50%;
     background-repeat: no-repeat;
     background-size: contain;
-    left: 55px;
     position: relative;
 }
 
+.flag-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
 
+.logo-right {
+    right: 10px;
+}
+
+/* 
 .about-me {
     width: 30%;
     height: 100%;
     background-color: yellow;
-}
+} */
 
 .game-info, .game-area, .extras-area {
     display: inline-block;
     font-size: 1rem;
     color: gold;
     text-align: center;
-    text-shadow: 2px 2px 2px black, 0 0 15px black, 0 0 20px black;
+    text-shadow: 2px 2px 2px black;
     /* text-shadow: 2px 2px 2px black, 2px 0px 10px navajowhite, 0 0 5px red; */
 }
 
 .game-info {
     width: 14vw;
-    height: 85vh;
+    height: 88vh;
     /* background-color: black; */
     font-size: 20px;
     vertical-align: top;
@@ -190,6 +204,9 @@ body {
     height: 20%;
     position: relative;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .value {
@@ -200,7 +217,6 @@ body {
 
 .accuracyValue {
     top: 35%;
-    font-size: 15px;
     position: relative;
 }
 
@@ -214,7 +230,7 @@ body {
 
 .game-area {
     width: 86vw;
-    height: 85vh;
+    height: 88vh;
     border: 10px ridge gold;
     border-left: none;
 }
