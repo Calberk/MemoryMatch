@@ -61,7 +61,6 @@ body {
 }
 
 .title {
-    width: 45%;
     height: 100%;
     font-size: 40px;
     color: white;
@@ -136,6 +135,7 @@ body {
 .label {
     position: relative;
     top: 15%;
+    color: gold;
 }
 
 .games-played {

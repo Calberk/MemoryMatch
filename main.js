@@ -8,6 +8,7 @@ function initializeApp(){
     startMusic();
     display_stats();
     $("#reset-game").click(resetPress);
+    initModal();
 }
 
 var firstSelectedCard = null;
@@ -233,4 +234,8 @@ function gameWinSound(){
 function pop(){
     var ring = new Audio('sounds/pop.mp3');
     ring.play();
+}
+
+function initModal(){
+    $('#intro_modal').modal('show');
 }
