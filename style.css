@@ -192,6 +192,29 @@ body {
     right: 10px;
 }
 
+.speaker {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    right: 0;
+    top: 25%;
+}
+
+.play {
+    background: url("images/speaker.png");
+    background-repeat: no-repeat;
+    height: 50%;
+    width: 50px;
+}
+
+.mute {
+    background: url("images/speakerOff.png");
+    background-repeat: no-repeat;
+    height: 50%;
+    width: 50px;
+
+}
+
 /* 
 .about-me {
     width: 30%;
