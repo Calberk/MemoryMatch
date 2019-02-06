@@ -18,6 +18,10 @@ body {
     background-size: cover; 
 }
 
+.modal-dialog {
+    top: 25%;
+}
+
 .head-container {
     /* width: 100%; */
     height: 12vh;
