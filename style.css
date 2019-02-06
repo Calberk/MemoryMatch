@@ -16,11 +16,63 @@ body {
     background-image: url("images/board-background.png");
     background-repeat: no-repeat;
     background-size: cover; 
+    font-family: Clash;
+}
+
+#intro-modal {
+    display: flex;
+}
+
+.modal-open .modal {
+    justify-content: center;
 }
 
 .modal-dialog {
-    top: 25%;
+    height: 40%;
+    top: 35%;
 }
+
+.modal-image {
+    background-image: url("images/npc.png");
+    height: 30%;
+    top: 5%;
+    background-repeat: no-repeat;
+    background-size: contain; 
+    position: absolute;
+}
+
+.modal-title {
+    color: gold;
+    text-shadow: 2px 5px 2px black, 0 0 15px black, 0 0 12px black;
+}
+
+.modal-header h2 {
+    font-size: 24px;
+}
+
+.modal-content {
+    background: black;
+}
+
+
+.modal-body p {
+    font-size: 20px;
+    color: white;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-backdrop.in {
+    opacity: 0.9;
+    background: black
+}
+
+/* .modal-content {
+    background: transparent;
+} */
 
 .head-container {
     /* width: 100%; */
@@ -65,18 +117,18 @@ body {
 }
 
 .title {
-    height: 100%;
     font-size: 40px;
     color: white;
     position: relative;
     vertical-align: top;
     font-family: Clash;
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 10px;
 }
 
 .title-container {
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,6 +141,7 @@ body {
     font-size: 40px;
     position: relative;
     font-family: Clash;
+    margin: 0;
 }
 
 .flag {
@@ -306,12 +359,31 @@ body {
 
 @media  (orientation: portrait) {
 
+.modal-dialog {
+    top: 40%;
+}
+
+.modal-image {
+    background-image: url("images/npc.png");
+    height: 30%;
+    top: 10%;
+    background-repeat: no-repeat;
+    background-size: contain; 
+    position: absolute;
+}
+
 .logo-img {
     position: relative;
-    /* left: 50%;
-    top: 6%; */
     height: 60%;
     position: relative;
+}
+
+.label {
+    font-size: 20px;
+}
+
+.game-title {
+    font-size: 50px;
 }
 
 .game-info {
