@@ -5,10 +5,10 @@ function initializeApp(){
     cardRandomizer();
     imageRandomizer();
     applyHandler();
-    startMusic();
     display_stats();
     $("#reset-game").click(resetPress);
     initModal();
+    pressPlay();
 }
 
 var firstSelectedCard = null;
@@ -20,26 +20,26 @@ var games_played = 0;
 var attempts = 0;
 var accuracy = 0;
 var cardImages = [
-    "images/fire_spirits.png",
-    "images/fire_spirits.png",
-    "images/baby_dragon.png",
-    "images/baby_dragon.png",
-    "images/snow_spirits.png",
-    "images/snow_spirits.png",
-    "images/golem.png",
-    "images/golem.png",
-    "images/ice_wizard.png",
-    "images/ice_wizard.png",
-    "images/prince.png",
-    "images/prince.png",
-    "images/princess.png",
-    "images/princess.png",
-    "images/witch.png",
-    "images/witch.png",
-    "images/elixir.png",
-    "images/elixir.png",
-    "images/tornado.png",
-    "images/tornado.png",    
+    "images/cards/fire_spirits.png",
+    "images/cards/fire_spirits.png",
+    "images/cards/baby_dragon.png",
+    "images/cards/baby_dragon.png",
+    "images/cards/snow_spirits.png",
+    "images/cards/snow_spirits.png",
+    "images/cards/golem.png",
+    "images/cards/golem.png",
+    "images/cards/ice_wizard.png",
+    "images/cards/ice_wizard.png",
+    "images/cards/prince.png",
+    "images/cards/prince.png",
+    "images/cards/princess.png",
+    "images/cards/princess.png",
+    "images/cards/witch.png",
+    "images/cards/witch.png",
+    "images/cards/elixir.png",
+    "images/cards/elixir.png",
+    "images/cards/tornado.png",
+    "images/cards/tornado.png",    
 ];
 
 var backgroundImages = [
@@ -208,6 +208,7 @@ function reset_stats(){
 function startMusic() {
     var player = new Audio('sounds/clash_royale_battle.mp3');
     player.play().loop;
+    player.loop = true;
 
 }
 
@@ -238,4 +239,8 @@ function pop(){
 
 function initModal(){
     $('#intro_modal').modal('show');
+}
+
+function pressPlay(){
+    $('.playBtn').click(startMusic)
 }
