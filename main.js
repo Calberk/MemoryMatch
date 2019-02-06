@@ -9,6 +9,7 @@ function initializeApp(){
     $("#reset-game").click(resetPress);
     initModal();
     pressPlay();
+    changeAudio();
 }
 
 var firstSelectedCard = null;
@@ -129,15 +130,15 @@ function cardClick() {
         // hideCard(secondSelectedCard);
         // attempts++;
         if ($(firstSelectedCard).find(".front > img").attr("src") === $(secondSelectedCard).find(".front > img").attr("src")) {
-            match_counter++;
             matchSound();
             $(firstSelectedCard).find(".front > img").animate({opacity: '0',}, 1500);
             $(secondSelectedCard).find(".front > img").animate({opacity: '0',}, 1500);
             // setTimeout(clearCard, 1500);
             firstSelectedCard = null;
             secondSelectedCard = null;
+            match_counter++;
             if (match_counter === total_possible_matches) {
-                winTimer();
+                setTimeout(winModal, 3000)
             }
         } else {
             attempts++;
@@ -210,14 +211,23 @@ function reset_stats(){
 }
 
 function startMusic() {
-    var player = new Audio('sounds/clash_royale_battle.mp3');
-    player.play().loop;
-    player.loop = true;
+    var audio = document.getElementById("background-music");
+    audio.play().loop;
+    audio.loop = true;
 
 }
 
-function winTimer(){
-    setTimeout(winModal, 1000);
+function changeAudio(){
+    var audio = document.getElementById("background-music");
+    $("#sound_toggle").click(function(){
+        if (audio.paused) {
+            $(this).removeClass('mute');
+            audio.play();
+        } else {
+            $(this).addClass('mute');
+            audio.pause();
+        }
+    })
 }
 
 function winModal(){
