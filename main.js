@@ -66,6 +66,10 @@ function applyHandler() {
     $(".card").click('.back > img', cardClick);
 }
 
+function initModal(){
+    $('#intro_modal').modal('show');
+}
+
 function cardRandomizer() {
     var swappedImage;
     for (var shrinkingImageIndex = cardImages.length - 1; shrinkingImageIndex >= 0; shrinkingImageIndex--) {
@@ -133,7 +137,7 @@ function cardClick() {
             firstSelectedCard = null;
             secondSelectedCard = null;
             if (match_counter === total_possible_matches) {
-                gameWinSound();
+                winTimer();
             }
         } else {
             attempts++;
@@ -212,6 +216,18 @@ function startMusic() {
 
 }
 
+function winTimer(){
+    setTimeout(winModal, 1000);
+}
+
+function winModal(){
+    // $('#intro_modal').modal('show');
+    gameWinSound();
+}
+
+
+// Sound effect and music //
+
 function resetSound(){
     var ring = new Audio('sounds/reset.mp3');
     ring.play();
@@ -235,10 +251,6 @@ function gameWinSound(){
 function pop(){
     var ring = new Audio('sounds/pop.mp3');
     ring.play();
-}
-
-function initModal(){
-    $('#intro_modal').modal('show');
 }
 
 function pressPlay(){
