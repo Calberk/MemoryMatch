@@ -57,11 +57,47 @@ var backgroundImages = [
     "images/background/background-opt13.png",
     "images/background/background-opt14.jpg",
     "images/background/background-opt15.jpg",
+    "images/background/background-opt16.jpg",
+    "images/background/background-opt17.jpg",
 ]
 
 function applyHandler() {
     $(".card").click('.back > img', cardClick);
+}
 
+function cardRandomizer() {
+    var swappedImage;
+    for (var shrinkingImageIndex = cardImages.length - 1; shrinkingImageIndex >= 0; shrinkingImageIndex--) {
+        var randomizedIndex = Math.floor(Math.random() * shrinkingImageIndex);
+        swappedImage = cardImages[shrinkingImageIndex];
+        cardImages[shrinkingImageIndex] = cardImages[randomizedIndex];
+        cardImages[randomizedIndex] = swappedImage;
+    }
+    setupGameCards()
+}
+
+function imageRandomizer() {
+    var randomizedIndex = Math.floor(Math.random() * backgroundImages.length);
+    var randomBackground = backgroundImages[randomizedIndex];
+    $("section").addClass("board-img").css("background-image", "url(" + randomBackground +")");
+}
+
+function setupGameCards(){
+    for (var cardCreated = 0; cardCreated < cardImages.length; cardCreated++){
+        var randomCard = cardImages[cardCreated];
+        var divContainer = $("<div>").addClass("card-container");
+        var divCard = $("<div>").addClass("card");
+        var divFront = $("<div>").addClass("front");
+        var imgCreated = $("<img>").addClass("front-img").attr("src", randomCard);
+        var divBack = $("<div>").addClass("back");
+        var divBackImg = $("<img>").addClass("back-img").attr("src", "images/royale-logo.jpg");
+        divFront.append(imgCreated);
+        divCard.append(divFront);
+        divBack.append(divBackImg);
+        divCard.append(divBack);
+        // divContainer.append(divCard);
+        $("section").append(divCard);
+    }
 }
 
 function cardClick() {
@@ -106,42 +142,6 @@ function cardClick() {
         }
     }
         display_stats()
-}
-
-function setupGameCards(){
-    for (var cardCreated = 0; cardCreated < cardImages.length; cardCreated++){
-        var randomCard = cardImages[cardCreated];
-        var divContainer = $("<div>").addClass("card-container");
-        var divCard = $("<div>").addClass("card");
-        var divFront = $("<div>").addClass("front");
-        var imgCreated = $("<img>").addClass("front-img").attr("src", randomCard);
-        var divBack = $("<div>").addClass("back");
-        var divBackImg = $("<img>").addClass("back-img").attr("src", "images/royale-logo.jpg");
-        divFront.append(imgCreated);
-        divCard.append(divFront);
-        divBack.append(divBackImg);
-        divCard.append(divBack);
-        // divContainer.append(divCard);
-        $("section").append(divCard);
-    }
-}
-
-function cardRandomizer() {
-    var swappedImage;
-    for (var shrinkingImageIndex = cardImages.length - 1; shrinkingImageIndex >= 0; shrinkingImageIndex--) {
-        var randomizedIndex = Math.floor(Math.random() * shrinkingImageIndex);
-        swappedImage = cardImages[shrinkingImageIndex];
-        cardImages[shrinkingImageIndex] = cardImages[randomizedIndex];
-        cardImages[randomizedIndex] = swappedImage;
-    }
-    setupGameCards()
-}
-
-function imageRandomizer() {
-    var randomizedIndex = Math.floor(Math.random() * backgroundImages.length);
-    var randomBackground = backgroundImages[randomizedIndex];
-    $("section").addClass("board-img").css("background-image", "url(" + randomBackground +")");
-
 }
 
 function hideCard(card){
@@ -207,10 +207,6 @@ function reset_stats(){
 function startMusic() {
     var player = new Audio('sounds/clash_royale_battle.mp3');
     player.play().loop;
-
-
-
-
 
 }
 
