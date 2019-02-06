@@ -213,7 +213,7 @@ function reset_stats(){
 function startMusic() {
     var audio = document.getElementById("background-music");
     audio.play().loop;
-    player.loop = true;
+    audio.loop = true;
 
 }
 
