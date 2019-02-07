@@ -27,12 +27,12 @@ body {
     justify-content: center;
 }
 
-.modal-dialog {
+.intro-dialog {
     height: 40%;
     top: 35%;
 }
 
-.modal-image {
+.intro-image {
     background-image: url("images/npc.png");
     height: 30%;
     top: 5%;
@@ -41,26 +41,26 @@ body {
     position: absolute;
 }
 
-.modal-title {
+.intro-title {
     color: gold;
     text-shadow: 2px 5px 2px black, 0 0 15px black, 0 0 12px black;
 }
 
-.modal-header h2 {
+.intro-header h2 {
     font-size: 24px;
 }
 
-.modal-content {
-    background: black;
+.intro-content {
+    background: transparent;
 }
 
 
-.modal-body p {
+.intro-body p {
     font-size: 20px;
     color: white;
 }
 
-.modal-footer {
+.intro-footer {
     display: flex;
     justify-content: center;
 }
@@ -254,7 +254,7 @@ body {
     height: 20%;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: space-around;
     font-family: Clash;
 }
 
@@ -270,7 +270,7 @@ body {
     height: 20%;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: space-around;
     position: relative;
     font-family: Clash;
 }
@@ -280,19 +280,17 @@ body {
     height: 20%;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: space-around;
     position: relative;
     font-family: Clash;
 }
 
 .value {
-    top: 33%;
     right: 2%;
     position: relative;
 }
 
 .accuracyValue {
-    top: 35%;
     position: relative;
 }
 
@@ -409,21 +407,117 @@ body {
     display: none;
 }
 
+#winModal {
+    /* display: none; */
+}
+
+.win-dialog {
+    width: 50%;
+    height: 25%;
+    margin: 0 auto;
+}
+
+.image-container2 {
+    height: 28%;
+    /* width: 100%; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 4%;
+}
+
+.image-container {
+    height: 28%;
+    /* width: 100%; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.win-image {
+    /* background-image: url("images/npc.png"); */
+    height: 100%;
+    top: 5%;
+    background-repeat: no-repeat;
+    background-size: contain; 
+    /* position: absolute; */
+    margin: 0 10%;
+}
+
+.win-title {
+    color: gold;
+    text-shadow: 2px 5px 2px black, 0 0 15px black, 0 0 12px black;
+}
+
+.win-body h2 {
+    font-size: 16px;
+}
+
+.win-content {
+    height: 90%;
+    background: transparent;
+}
+
+
+.win-body p {
+    font-size: 20px;
+    color: white;
+}
+
+.win-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-backdrop.in {
+    opacity: 0.9;
+    background: black
+}
+
+.modal-footer .playAgain {
+    border-radius: 5px;
+    background: #fff;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 0 2px rgba(255,2525,255, 0.5);
+    animation: pulse 1.5s infinite;
+    -webkit-animation: pulse 1.5s infinite;
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: -1px;
+}
+
+.modal-footer .playAgain:hover {
+  -webkit-animation: none;
+}
+
 /* PORTRAIT */
 
 @media  (orientation: portrait) {
 
-.modal-dialog {
+.intro-dialog {
     top: 40%;
 }
 
-.modal-image {
+.intro-image {
     background-image: url("images/npc.png");
-    height: 30%;
+    height: 25%;
     top: 10%;
     background-repeat: no-repeat;
     background-size: contain; 
     position: absolute;
+}
+
+.intro-header h2 {
+    font-size: 30px
+}
+
+.intro-body p {
+    font-size: 27px;
+}
+
+.modal-footer .playBtn {
+    font-size: 30px;
 }
 
 .logo-img {
@@ -457,23 +551,14 @@ body {
 
 .games-played {
     height: 100px;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: space-around; */
 }
 
 .attempts {
     height: 100px;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: space-around; */
 }
 
 .accuracy {
     height: 100px;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: space-around; */
 }
 
 .reset {
@@ -512,5 +597,66 @@ body {
     border-top: none;
 } 
 
+.image-container2 {
+    height: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20%;
+}
 
+.image-container {
+    height: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.win-image {
+    /* background-image: url("images/npc.png"); */
+    height: 100%;
+    top: 5%;
+    background-repeat: no-repeat;
+    background-size: contain; 
+    /* position: absolute; */
+    margin: 0 10%;
+}
+
+}
+
+@media (min-width: 1366px) and (orientation: landscape){
+    .game-info {
+        font-size: 27px;
+    }
+
+    .intro-header h2 {
+        font-size: 35px;
+    }
+
+    .intro-body p {
+        font-size: 24px;
+    }    
+
+    .modal-footer .playBtn {
+        font-size: 30px;
+    }
+
+    .win-body h2 {
+        font-size: 30px;
+    }
+
+    .modal-footer .playAgain {
+        font-size: 20px;
+    }
+    
+    .modal-header {
+        padding: none;
+    }
+
+    .win-dialog {
+        width: 40%;
+        height: 20%;
+    }
 }

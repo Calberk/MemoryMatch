@@ -7,6 +7,7 @@ function initializeApp(){
     applyHandler();
     display_stats();
     $("#reset-game").click(resetPress);
+    $('.playAgain').click(resetPress)
     initModal();
     pressPlay();
     changeAudio();
@@ -14,7 +15,7 @@ function initializeApp(){
 
 var firstSelectedCard = null;
 var secondSelectedCard = null;
-var total_possible_matches = 9;
+var total_possible_matches = 10;
 var match_counter = 0;
 var canIClick = true;
 var games_played = 0;
@@ -210,28 +211,36 @@ function reset_stats(){
     secondSelectedCard = null;
 }
 
-function startMusic() {
-    var audio = document.getElementById("background-music");
-    audio.play().loop;
-    audio.loop = true;
-
-}
-
 function changeAudio(){
     var audio = document.getElementById("background-music");
+    var audio2 = document.getElementById("background-music2");
+    var audio3 = document.getElementById("background-music3");
+    var audio4 = document.getElementById("background-music4");
+    var audio5 = document.getElementById("background-music5");
+    var audio6 = document.getElementById("background-music6");
     $("#sound_toggle").click(function(){
-        if (audio.paused) {
+        if ($("#sound_toggle").hasClass('mute')) {
             $(this).removeClass('mute');
-            audio.play();
+            audio.muted = false;
+            audio2.muted = false;
+            audio3.muted = false;
+            audio4.muted = false;
+            audio5.muted = false;
+            audio6.muted = false;
         } else {
             $(this).addClass('mute');
-            audio.pause();
+            audio.muted = true;
+            audio2.muted = true;
+            audio3.muted = true;
+            audio4.muted = true;
+            audio5.muted = true;
+            audio6.muted = true;
         }
     })
 }
 
 function winModal(){
-    // $('#intro_modal').modal('show');
+    $('#winModal').modal('show');
     gameWinSound();
 }
 
@@ -239,30 +248,37 @@ function winModal(){
 // Sound effect and music //
 
 function resetSound(){
-    var ring = new Audio('sounds/reset.mp3');
+    var ring = document.getElementById("background-music2");
     ring.play();
 }
 
 function matchSound(){
-    var ring = new Audio('sounds/gold.mp3');
+    var ring = document.getElementById("background-music3");
     ring.play();
 }
 
 function misMatchSound(){
-    var ring = new Audio('sounds/barb_king.mp3');
+    var ring = document.getElementById("background-music4");
     ring.play();
 }
 
 function gameWinSound(){
-    var ring = new Audio('sounds/game_win.mp3');
+    var ring = document.getElementById("background-music5");
     ring.play();
 }
 
 function pop(){
-    var ring = new Audio('sounds/pop.mp3');
+    var ring = document.getElementById("background-music6");
     ring.play();
+}
+
+function startMusic() {
+    var audio = document.getElementById("background-music");
+    audio.play().loop;
+    audio.loop = true;
 }
 
 function pressPlay(){
     $('.playBtn').click(startMusic)
 }
+
