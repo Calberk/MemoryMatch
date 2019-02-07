@@ -21,23 +21,48 @@
 </head>
 <body>
     <div id="intro_modal" class="modal fade" role="dialog" style="display: flex">
-        <img class="modal-image" src="images/npc.png">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title text-center ">WELCOME TO<br>CLASH AND MATCH</h2>  
+        <img class="intro-image" src="images/npc.png">
+        <div class="modal-dialog intro-dialog">
+            <div class="modal-content intro-content">
+                <div class="modal-header intro-header">
+                    <h2 class="modal-title intro-title text-center ">WELCOME TO<br>CLASH AND MATCH</h2>  
                 </div>
                 <div class="botum">
-                    <div class="modal-body">
+                    <div class="modal-body intro-body">
                         <p class=" text-center ">Enjoy a fun game of memory match.<br>To win, find all the matching pairs!</p>
                         
                     </div>
-                    <div class="modal-footer text-center ">
+                    <div class="modal-footer intro-footer text-center ">
                         <button id="playBtn" type="button" class="playBtn" data-dismiss="modal">PLAY</button>
                     </div> 
                 </div>
             </div>
         </div>         
+    </div>
+
+    <div id="winModal" class= " modal fade" role="dialog">
+        <div class="image-container2">
+            <img class="win-image win-image3" src="images/winChar.png">
+        </div>
+        <div class="modal-dialog win-dialog">
+            <div class="modal-content win-content">
+                <div class="modal-header win-header">
+                    <!-- <h2 class="modal-title win-title text-center ">CONGRATULATION<br>YOU WIN!</h2>   -->
+                </div>
+                <div class="botum">
+                    <div class="modal-body win-body">
+                        <h2 class="modal-title win-title text-center ">CONGRATULATION<br>YOU WIN!</h2>
+                    </div>
+                    <div class="modal-footer win-footer text-center ">
+                        <button id="playAgain" type="button" class="playAgain" data-dismiss="modal">PLAY AGAIN</button>
+                    </div>                    
+                </div>
+            </div>
+        </div> 
+        <div class="image-container">
+                <img class="win-image win-image1" src="images/Blue_King.png">
+                <img class="win-image win-image2" src="images/winKnight.png">
+        </div>        
     </div>
         
     <header class="head-container banner">
@@ -60,6 +85,21 @@
                     <!-- AUDIO -->
         <audio id="background-music">
             <source src="sounds/clash_royale_battle.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="background-music2">
+                <source src="sounds/reset.mp3" type="audio/mpeg">
+            </audio>
+        <audio id="background-music3">
+                <source src="sounds/gold.mp3" type="audio/mpeg">
+        </audio>        
+        <audio id="background-music4">
+                <source src="sounds/barb_king.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="background-music5">
+            <source src="sounds/pop.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="background-music6">
+                <source src="sounds/game_win.mp3" type="audio/mpeg">
         </audio>
         <div id="my_audio">
             <div id="sound_toggle" class="speaker play" ></div>
