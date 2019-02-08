@@ -21,6 +21,7 @@ var canIClick = true;
 var games_played = 0;
 var attempts = 0;
 var accuracy = 0;
+var lifePoints = 100;
 var cardImages = [
     "images/cards/fire_spirits.png",
     "images/cards/fire_spirits.png",
@@ -52,12 +53,12 @@ var backgroundImages = [
     "images/background/background-opt5.jpg",
     "images/background/background-opt6.jpg",
     "images/background/background-opt7.jpg",
-    "images/background/background-opt8.png",
+    "images/background/background-opt8.jpg",
     "images/background/background-opt9.jpg",
-    "images/background/background-opt10.png",
+    "images/background/background-opt10.jpg",
     "images/background/background-opt11.jpg",
     "images/background/background-opt12.jpg",
-    "images/background/background-opt13.png",
+    "images/background/background-opt13.jpg",
     "images/background/background-opt14.jpg",
     "images/background/background-opt15.jpg",
     "images/background/background-opt16.jpg",
@@ -69,8 +70,18 @@ function applyHandler() {
 }
 
 function initModal(){
-    $('#intro_modal').modal('show');
+    $('#intro_modal').modal({
+        show: true,
+        keyboard: false,
+        backdrop: 'static'
+    });
 }
+
+function winModal(){
+    $('#winModal').modal('show');
+    gameWinSound();
+}
+
 
 function cardRandomizer() {
     var swappedImage;
@@ -107,6 +118,8 @@ function setupGameCards(){
     }
 }
 
+// Card functionality //
+
 function cardClick() {
     if (!canIClick) {
         return;
@@ -134,18 +147,19 @@ function cardClick() {
             matchSound();
             $(firstSelectedCard).find(".front > img").animate({opacity: '0',}, 1500);
             $(secondSelectedCard).find(".front > img").animate({opacity: '0',}, 1500);
-            // setTimeout(clearCard, 1500);
-            firstSelectedCard = null;
-            secondSelectedCard = null;
+            setTimeout(clearCard, 1000);
+            // firstSelectedCard = null;
+            // secondSelectedCard = null;
             match_counter++;
             if (match_counter === total_possible_matches) {
-                setTimeout(winModal, 3000)
+                setTimeout(winModal, 1500)
             }
         } else {
             attempts++;
             misMatchSound();
             canIClick = false;
-            timeOut();
+            flipTimer();
+            remainingHealthCalculator();
         }
     }
         display_stats()
@@ -158,13 +172,13 @@ function hideCard(card){
 }
 
 function clearCard(){
-    $(firstSelectedCard).addClass('hide').removeClass('rotate');
-    $(secondSelectedCard).addClass('hide').removeClass('rotate');
+    // $(firstSelectedCard).addClass('hide').removeClass('rotate');
+    // $(secondSelectedCard).addClass('hide').removeClass('rotate');
     firstSelectedCard = null;
     secondSelectedCard = null;
 }
 
-function timeOut(){
+function flipTimer(){
     setTimeout(unFlipCard, 1000);
 }
 
@@ -175,6 +189,8 @@ function unFlipCard(){
     secondSelectedCard = null;
     canIClick = true;
 }
+
+// Game Info/Reset Section //
 
 function updateAccuracy(){
         var accuracyStat = ((match_counter/attempts) * 100).toFixed(2) + "%";
@@ -200,6 +216,7 @@ function resetPress(){
     cardRandomizer();
     applyHandler();
     imageRandomizer();
+    resetHealthBar();
 }
 
 function reset_stats(){
@@ -210,6 +227,47 @@ function reset_stats(){
     firstSelectedCard = null;
     secondSelectedCard = null;
 }
+
+function resetHealthBar(){
+    lifePoints = 100;
+    $('.barSuccess').css('width', 40 + '%');
+    $('.barWarning').css('width', 40 + '%');
+    $('.barDanger').css('width', 20 + '%');
+}
+
+// Game progress bar and end//
+
+function remainingHealthCalculator(){
+    var wrongAnswer = 5;
+    lifePoints = lifePoints - wrongAnswer;
+    if(lifePoints === 0){
+        setTimeout(function(){
+            $("#loseModal").modal({
+            show: true,
+            keyboard: false,
+            backdrop: 'static'
+        });}, 1500)
+        return;
+    }
+    if(lifePoints >= 60 ){
+        $('.barSuccess').css('width', (lifePoints-60) + '%');
+        if(lifePoints === 60){
+            $('.king > .happy').hide()
+            $('.king > .cry').show()
+        }
+    }else if(lifePoints >=20){
+        $('.barWarning').css('width', (lifePoints-20) + '%');
+        if(lifePoints ===20){
+            $('.king > .cry').hide();
+            $('.kingAngry > .angry').show();
+        }
+    }else{
+        $('.barDanger').css('width', (lifePoints) + '%');
+    }
+}
+
+
+// Sound effect and music //
 
 function changeAudio(){
     var audio = document.getElementById("background-music");
@@ -239,13 +297,9 @@ function changeAudio(){
     })
 }
 
-function winModal(){
-    $('#winModal').modal('show');
-    gameWinSound();
+function pressPlay(){
+    $('.playBtn').click(startMusic)
 }
-
-
-// Sound effect and music //
 
 function resetSound(){
     var ring = document.getElementById("background-music2");
@@ -278,7 +332,4 @@ function startMusic() {
     audio.loop = true;
 }
 
-function pressPlay(){
-    $('.playBtn').click(startMusic)
-}
 

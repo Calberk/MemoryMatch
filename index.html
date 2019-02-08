@@ -51,7 +51,7 @@
                 </div>
                 <div class="botum">
                     <div class="modal-body win-body">
-                        <h2 class="modal-title win-title text-center ">CONGRATULATION<br>YOU WIN!</h2>
+                        <h2 class="modal-title win-title text-center ">CONGRATULATIONS<br>YOU WIN!</h2>
                     </div>
                     <div class="modal-footer win-footer text-center ">
                         <button id="playAgain" type="button" class="playAgain" data-dismiss="modal">PLAY AGAIN</button>
@@ -64,6 +64,30 @@
                 <img class="win-image win-image2" src="images/winKnight.png">
         </div>        
     </div>
+    <div id="loseModal" class= " modal fade" role="dialog">
+            <div class="image-container2">
+                <img class="lose-image lose-image3" src="images/kingCry.png">
+            </div>
+            <div class="modal-dialog lose-dialog">
+                <div class="modal-content lose-content">
+                    <div class="modal-header lose-header">
+                        <!-- <h2 class="modal-title lose-title text-center ">CONGRATULATION<br>YOU WIN!</h2>   -->
+                    </div>
+                    <div class="botum">
+                        <div class="modal-body lose-body">
+                            <h2 class="modal-title lose-title text-center ">YOU LOST!<br>BETTER LUCK NEXT TIME</h2>
+                        </div>
+                        <div class="modal-footer lose-footer text-center ">
+                            <button id="playAgain" type="button" class="playAgain" data-dismiss="modal">PLAY AGAIN</button>
+                        </div>                    
+                    </div>
+                </div>
+            </div> 
+            <div class="image-container">
+                    <img class="lose-image lose-image1" src="images/kingAngry.png">
+                    <img class="lose-image lose-image2" src="images/kingAngry.png">
+            </div>        
+        </div>
         
     <header class="head-container banner">
         <div class="bannerContainer">
@@ -134,7 +158,27 @@
     </section>
 
     <div class="extras-area">
-        <div id="mute"></div>
+        <div class="progress">
+            <div class="progress-bar progress-bar-danger progress-bar-striped barDanger" style="width: 20%">
+                <div class="elixir-container">
+                        <img class="elixir" src="images/elixir_big_icon.png">
+                </div>    
+                <div class="kingAngry">
+                    <img class="angry" src="images/kingAngry.png">
+                </div>     
+            </div>
+            <div class="progress-bar progress-bar-warning progress-bar-striped barWarning" style="width: 40%">
+                <div class="king">
+                    <img class="cry" src="images/kingCry.png">
+                </div>    
+            </div>
+            <div class="progress-bar progress-bar-success progress-bar-striped barSuccess" style="width: 40%">
+                <div class="king">
+                    <img class="happy" src="images/kingHappy.png">
+                </div>    
+                
+            </div>
+        </div>
     </div>
 </body>
 </html>
