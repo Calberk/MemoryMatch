@@ -33,7 +33,7 @@ body {
 }
 
 .intro-image {
-    background-image: url("images/npc.png");
+    /* background-image: url("images/npc.png"); */
     height: 30%;
     top: 5%;
     background-repeat: no-repeat;
@@ -41,7 +41,7 @@ body {
     position: absolute;
 }
 
-.intro-title {
+.intro-title, .lose-title {
     color: gold;
     text-shadow: 2px 5px 2px black, 0 0 15px black, 0 0 12px black;
 }
@@ -50,7 +50,7 @@ body {
     font-size: 24px;
 }
 
-.intro-content {
+.intro-content, .lose-content {
     background: transparent;
 }
 
@@ -60,7 +60,7 @@ body {
     color: white;
 }
 
-.intro-footer {
+.intro-footer, .lose-footer {
     display: flex;
     justify-content: center;
 }
@@ -212,7 +212,79 @@ body {
     background-repeat: no-repeat;
     height: 50%;
     width: 50px;
+}
 
+/* .barDanger {
+    width: 40%;
+    display: flex;
+    align-items: center;
+} */
+
+.elixir-container {
+    height: 100%;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.elixir {
+    height: 6%;
+    width: 7%;
+    position: absolute;
+    left: 7%;
+
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 0 20px rgba(255,2525,255, 0.3), 0 0 30px rgba(255,2525,255, 0.3);
+    animation: pulse 1.5s infinite;
+    -webkit-animation: pulse 1.5s infinite;
+}
+
+.extras-area .progress {
+    height: 30px;
+    margin-bottom: 0;
+}
+
+.king {
+    height: 100%;
+    width: 110%;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.kingAngry {
+    height: 100%;
+    width: 120%;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+ .king .cry, .king .happy {
+    height: 5%;
+    position: absolute;
+    width: 6%;
+}
+
+.kingAngry .angry {
+    height: 7%;
+    position: absolute;
+    width: 10%;
+}
+
+.angry {
+    display: none;
+}
+
+.cry {
+    display: none;
 }
 
 /* 
@@ -491,6 +563,17 @@ body {
   -webkit-animation: none;
 }
 
+.extras-area {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+}
+
+.progress {
+    width: 80%;
+}
+
 /* PORTRAIT */
 
 @media  (orientation: portrait) {
@@ -500,7 +583,7 @@ body {
 }
 
 .intro-image {
-    background-image: url("images/npc.png");
+    /* background-image: url("images/npc.png"); */
     height: 25%;
     top: 10%;
     background-repeat: no-repeat;
@@ -518,6 +601,32 @@ body {
 
 .modal-footer .playBtn {
     font-size: 30px;
+}
+
+
+.win-dialog {
+    height: 25%;
+}
+
+.win-body h2 {
+    font-size: 30px
+}
+
+.modal-footer .playAgain {
+    font-size: 25px;
+}
+
+.lose-body h2 {
+    font-size: 30px
+}
+
+.intro-image {
+    /* background-image: url("images/npc.png"); */
+    height: 25%;
+    top: 10%;
+    background-repeat: no-repeat;
+    background-size: contain; 
+    position: absolute;
 }
 
 .logo-img {
