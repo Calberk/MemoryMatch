@@ -235,7 +235,7 @@ body {
     position: absolute;
     left: 7%;
 
-    border-radius: 50%;
+    border-radius: 50% 25% 50% 50%;
     border: none;
     box-shadow: 0 0 20px rgba(255,2525,255, 0.3), 0 0 30px rgba(255,2525,255, 0.3);
     animation: pulse 1.5s infinite;
@@ -479,10 +479,6 @@ body {
     display: none;
 }
 
-#winModal {
-    /* display: none; */
-}
-
 .win-dialog {
     width: 50%;
     height: 25%;
@@ -563,11 +559,29 @@ body {
   -webkit-animation: none;
 }
 
+.lose-body h2 {
+    font-size: 20px
+}
+
+.lose-content .lose-header {
+    padding: 0;
+}
+
+.lose-dialog {
+    margin: 0 auto;
+}
+
+.lose-image {
+    height: 100%;
+    margin: 0 10%;
+}
+
 .extras-area {
-    display: flex;
+    display: inline-flex;
     flex-direction: column; 
     justify-content: center;
     align-items: center;
+    vertical-align: top;
 }
 
 .progress {
@@ -601,15 +615,6 @@ body {
 
 .modal-footer .playBtn {
     font-size: 30px;
-}
-
-
-.win-dialog {
-    height: 25%;
-}
-
-.win-body h2 {
-    font-size: 30px
 }
 
 .modal-footer .playAgain {
@@ -706,6 +711,14 @@ body {
     border-top: none;
 } 
 
+.win-dialog {
+    height: 25%;
+}
+
+.win-body h2 {
+    font-size: 30px
+}
+
 .image-container2 {
     height: 25%;
     width: 100%;
@@ -732,6 +745,45 @@ body {
     /* position: absolute; */
     margin: 0 10%;
 }
+
+.lose-dialog {
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.lose-body h2 {
+    font-size: 30px
+}
+
+.lose-container2 {
+    height: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20%;
+}
+
+.lose-container {
+    height: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.lose-image {
+    /* background-image: url("images/npc.png"); */
+    height: 100%;
+    top: 5%;
+    background-repeat: no-repeat;
+    background-size: contain; 
+    /* position: absolute; */
+    margin: 0;
+}
+
 
 }
 
@@ -765,6 +817,15 @@ body {
     }
 
     .win-dialog {
+        width: 40%;
+        height: 20%;
+    }
+
+    .lose-body h2 {
+        font-size: 30px;
+    }
+
+    .lose-dialog {
         width: 40%;
         height: 20%;
     }
