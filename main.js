@@ -11,6 +11,8 @@ function initializeApp(){
     initModal();
     pressPlay();
     changeAudio();
+    resetDisable()
+    // progressBarOrientation()
 }
 
 var firstSelectedCard = null;
@@ -230,12 +232,45 @@ function reset_stats(){
 
 function resetHealthBar(){
     lifePoints = 100;
-    $('.barSuccess').css('width', 40 + '%');
-    $('.barWarning').css('width', 40 + '%');
-    $('.barDanger').css('width', 20 + '%');
+    $('.barSuccess-portrait').css('width', 40 + '%');
+    $('.barWarning-portrait').css('width', 40 + '%');
+    $('.barDanger-portrait').css('width', 20 + '%');
+
+    $('.king-portrait > .happy-portrait').show()
+    $('.king-portrait > .cry-portrait').hide()
+    $('.kingAngry-portrait > .angry-portrait').hide();
+
+    $('.barSuccess-landscape').css('height', 40 + '%');
+    $('.barWarning-landscape').css('height', 40 + '%');
+    $('.barDanger-landscape').css('height', 20 + '%');
+
+    $('.king-portrait > .happy-landscape').show()
+    $('.king-portrait > .cry-landscape').hide()
+    $('.kingAngry-portrait > .angry-landscape').hide();
+
+}
+
+function resetDisable(){
+    if(attempts === 0){
+        $('#reset-game').off('click');
+    }else {
+        $('#reset-game').on('click', resetPress)
+    }
 }
 
 // Game progress bar and end//
+
+// function progressBarOrientation(){
+//     if(window.innerHeight > window.innerWidth){
+//         $(".extras-area-portrait").toggleClass('hide');
+//         $(".extras-area-landscape").toggleClass('hide');
+
+//     }else{
+//         $(".extras-area-portrait").toggleClass('hide');
+//         $(".extras-area-landscape").toggleClass('hide');
+    // }
+// }
+
 
 function remainingHealthCalculator(){
     var wrongAnswer = 5;
@@ -249,23 +284,40 @@ function remainingHealthCalculator(){
         });}, 1500)
         return;
     }
-    if(lifePoints >= 60 ){
-        $('.barSuccess').css('width', (lifePoints-60) + '%');
-        if(lifePoints === 60){
-            $('.king > .happy').hide()
-            $('.king > .cry').show()
+    // if(window.innerHeight > window.innerWidth){
+        if(lifePoints >= 60 ){
+            $('.barSuccess-portrait').css('width', (lifePoints-60) + '%');
+            if(lifePoints === 60){
+                $('.king-portrait > .happy-portrait').hide()
+                $('.king-portrait > .cry-portrait').show()
+            }
+        }else if(lifePoints >=20){
+            $('.barWarning-portrait').css('width', (lifePoints-20) + '%');
+            if(lifePoints ===20){
+                $('.king-portrait > .cry-portrait').hide();
+                $('.kingAngry-portrait > .angry-portrait').show();
+            }
+        }else{
+            $('.barDanger-portrait').css('width', (lifePoints) + '%');
         }
-    }else if(lifePoints >=20){
-        $('.barWarning').css('width', (lifePoints-20) + '%');
-        if(lifePoints ===20){
-            $('.king > .cry').hide();
-            $('.kingAngry > .angry').show();
+    
+        if(lifePoints >= 60 ){
+            $('.barSuccess-landscape').css('height', (lifePoints-60) + '%');
+            if(lifePoints === 60){
+                $('.king-landscape > .happy-landscape').hide()
+                $('.king-landscape > .cry-landscape').show()
+            }
+        }else if(lifePoints >=20){
+            $('.barWarning-landscape').css('height', (lifePoints-20) + '%');
+            if(lifePoints ===20){
+                $('.king-landscape > .cry-landscape').hide();
+                $('.kingAngry-landscape > .angry-landscape').show();
+            }
+        }else{
+            $('.barDanger-landscape').css('height', (lifePoints) + '%');
         }
-    }else{
-        $('.barDanger').css('width', (lifePoints) + '%');
     }
-}
-
+// }
 
 // Sound effect and music //
 

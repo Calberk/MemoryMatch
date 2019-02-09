@@ -220,21 +220,24 @@ body {
     align-items: center;
 } */
 
-.elixir-container {
+
+.elixir-container-landscape {
     height: 100%;
     z-index: 100;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
     align-items: flex-end;
+    justify-content: center;
+    -ms-transform: rotate(180deg); 
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 
-.elixir {
-    height: 6%;
-    width: 7%;
+.elixir-landscape {
+    width: 3.5vw;
+    top: 185%;
     position: absolute;
-    left: 7%;
-
+    bottom: -25%;
     border-radius: 50% 25% 50% 50%;
     border: none;
     box-shadow: 0 0 20px rgba(255,2525,255, 0.3), 0 0 30px rgba(255,2525,255, 0.3);
@@ -242,48 +245,82 @@ body {
     -webkit-animation: pulse 1.5s infinite;
 }
 
-.extras-area .progress {
+.extras-area-portrait .progress-portrait {
     height: 30px;
     margin-bottom: 0;
+    border: 5px ridge gold;
+    border-radius: 10px;
 }
 
-.king {
+.extras-area-landscape .progress-landscape {
+    width: 30px;
+    margin-bottom: 0;
+    border: 5px ridge gold;
+    border-radius: 10px;
+}
+
+/* .barSuccess-landscape, .barWarning-landscape,
+.barDanger-landscape {
+    -ms-transform: rotate(180deg); 
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+} */
+
+.king-landscape {
     height: 100%;
-    width: 110%;
+    width: 100%;
     z-index: 100;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    -ms-transform: rotate(180deg); 
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 
-.kingAngry {
+.kingAngry-landscape {
     height: 100%;
-    width: 120%;
+    width: 100%;
     z-index: 100;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    -ms-transform: rotate(180deg); 
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 
- .king .cry, .king .happy {
-    height: 5%;
+.king-portrait .cry-portrait, .king-portrait .happy-portrait {
+    height: 6%;
     position: absolute;
-    width: 6%;
 }
 
-.kingAngry .angry {
-    height: 7%;
+.king-landscape .cry-landscape, .king-landscape .happy-landscape {
+    width: 3.5vw;
     position: absolute;
-    width: 10%;
 }
 
-.angry {
+.kingAngry-landscape .angry-landscape {
+    position: absolute;
+    height: 4.5vw;
+    z-index: 100;
+}
+
+.kingAngry-portrait .angry-portrait{
+    position: absolute;
+    height: 6%;
+    z-index: 100;
+}
+
+.angry-portrait,
+.angry-landscape {
     display: none;
 }
 
-.cry {
+.cry-portrait,
+.cry-landscape {
     display: none;
 }
 
@@ -294,7 +331,7 @@ body {
     background-color: yellow;
 } */
 
-.game-info, .game-area, .extras-area {
+.game-info, .game-area, .extras-area-portrait, .extras-area-landscape {
     display: inline-block;
     font-size: 1rem;
     color: gold;
@@ -429,6 +466,9 @@ body {
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
     height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
 }
 
 .back{
@@ -443,7 +483,7 @@ body {
 
 .front-img{
     height: 100%;
-    width: 100%;
+    max-width: 19vw;
     top: 0;
     left: 0;
 }
@@ -457,7 +497,7 @@ body {
     border-radius: 10px;
 }
 
-.extras-area {
+.extras-area-portrait, .extras-area-landscape {
     width: 14vw;
     height: 88vh;
     border: 10px ridge gold;
@@ -556,7 +596,7 @@ body {
 }
 
 .modal-footer .playAgain:hover {
-  -webkit-animation: none;
+    -webkit-animation: none;
 }
 
 .lose-body h2 {
@@ -576,7 +616,7 @@ body {
     margin: 0 10%;
 }
 
-.extras-area {
+.extras-area-portrait {
     display: inline-flex;
     flex-direction: column; 
     justify-content: center;
@@ -584,8 +624,38 @@ body {
     vertical-align: top;
 }
 
-.progress {
+.extras-area-landscape {
+    display: inline-flex;
+    flex-direction: row; 
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+}
+
+.progress-portrait {
     width: 80%;
+}
+
+.progress-landscape {
+    height: 80%;
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Safari */
+    transform: rotate(180deg);
+}
+
+.barSuccess-landscape, .barWarning-landscape, 
+.barDanger-landscape {
+    width: 100%
+}
+
+
+
+/* PORTRAIT */
+
+@media (orientation: landscape) {
+    .extras-area-portrait {
+        display: none;
+    }
 }
 
 /* PORTRAIT */
@@ -641,14 +711,15 @@ body {
 }
 
 .label {
-    font-size: 20px;
+    font-size: 3vw;
 }
 
 .game-title {
-    font-size: 50px;
+    font-size: 5vw;
 }
 
 .game-info {
+    font-size: 3vw;
     width: 100vw;
     height: auto;
     border-bottom: none;
@@ -705,7 +776,7 @@ body {
     top: 0.3%;
 }
 
-.extras-area {
+.extras-area-portrait {
     width: 100vw;
     height: 9vh;
     border-top: none;
@@ -784,6 +855,53 @@ body {
     margin: 0;
 }
 
+.elixir-container-portrait {
+    height: 100%;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.elixir-portrait {
+    height: 6%;
+    position: absolute;
+    left: 8%;
+    bottom: 8%;
+
+    border-radius: 50% 25% 50% 50%;
+    border: none;
+    box-shadow: 0 0 20px rgba(255,2525,255, 0.3), 0 0 30px rgba(255,2525,255, 0.3);
+    animation: pulse 1.5s infinite;
+    -webkit-animation: pulse 1.5s infinite;
+}
+
+.king-portrait {
+    height: 100%;
+    width: 110%;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 5%;
+}
+
+.kingAngry-portrait {
+    height: 100%;
+    width: 120%;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 10%;
+    flex-direction: column;
+}
+
+.extras-area-landscape {
+    display: none;
+}
 
 }
 
