@@ -135,7 +135,7 @@
     <aside class="game-info">
         <div class="infoContainer">
             <div class="games-played">
-                <div class="label">Games Played</div>
+                <div class="label">Games<br>Played</div>
                 <div class="value"></div>
             </div>
             <div class="attempts">
@@ -147,7 +147,7 @@
                 <div class="accuracyValue"></div>
             </div>
             <div class="reset">
-                <div class="vertical-font">Reset</div>
+                <div class="reset-title">Reset</div>
                 <img id="reset-game" src="images/logo.png"/>
             </div>
         </div>
@@ -158,50 +158,44 @@
     </section>
 
     <div class="extras-area-portrait">
+        <div class="king-container-portrait">
+            <div class="kingAngry-portrait hide">
+                <img class="angry-portrait" src="images/kingAngry.png">
+            </div> 
+            <div class="kingCry-portrait hide">
+                <img class="cry-portrait" src="images/kingCry.png">
+            </div>      
+            <div class="kingHappy-portrait">
+                <img class="happy-portrait" src="images/kingHappy.png">
+            </div>                        
+        </div>
         <div class="progress-portrait">
             <div class="progress-bar progress-bar-danger progress-bar-striped barDanger-portrait" style="width: 20%">
-                <div class="kingAngry-portrait">
-                    <img class="angry-portrait" src="images/kingAngry.png">
-                </div>   
-                <div class="elixir-container-portrait">
-                        <img class="elixir-portrait" src="images/elixir_big_icon.png">
-                </div>      
             </div>
             <div class="progress-bar progress-bar-warning progress-bar-striped barWarning-portrait" style="width: 40%">
-                <div class="king-portrait">
-                    <img class="cry-portrait" src="images/kingCry.png">
-                </div>    
             </div>
             <div class="progress-bar progress-bar-success progress-bar-striped barSuccess-portrait" style="width: 40%">
-                <div class="king-portrait">
-                    <img class="happy-portrait" src="images/kingHappy.png">
-                </div>    
-                
             </div>
         </div>
     </div>
 
     <div class="extras-area-landscape">
-            <div class="progress-landscape">
-                <div class="progress-bar progress-bar-danger progress-bar-striped barDanger-landscape" style="height: 20%">
-                    <div class="kingAngry-landscape">
-                        <img class="angry-landscape" src="images/kingAngry.png">
-                    </div> 
-                    <div class="elixir-container-landscape">
-                            <img class="elixir-landscape" src="images/elixir_big_icon.png">
-                    </div>        
-                </div>
-                <div class="progress-bar progress-bar-warning progress-bar-striped barWarning-landscape" style="height: 40%">
-                    <div class="king-landscape">
-                        <img class="cry-landscape" src="images/kingCry.png">
-                    </div>    
-                </div>
-                <div class="progress-bar progress-bar-success progress-bar-striped barSuccess-landscape" style="height: 40%">
-                    <div class="king-landscape">
-                        <img class="happy-landscape" src="images/kingHappy.png">
-                    </div>     
-                </div>
-            </div>
+        <div class="progress-landscape">
+            <div class="progress-bar progress-bar-danger progress-bar-striped barDanger-landscape" style="height: 20%"></div>
+            <div class="progress-bar progress-bar-warning progress-bar-striped barWarning-landscape" style="height: 40%"> </div>
+            <div class="progress-bar progress-bar-success progress-bar-striped barSuccess-landscape" style="height: 40%"></div>
         </div>
+        <div class="king-container-landscape">
+                <div class="kingAngry-landscape hide">
+                    <img class="angry-landscape" src="images/kingAngry.png">
+                </div> 
+                <div class="kingCry-landscape hide">
+                    <img class="cry-landscape" src="images/kingCry.png">
+                </div>      
+                <div class="kingHappy-landscape">
+                    <img class="happy-landscape" src="images/kingHappy.png">
+                </div>                        
+            </div>
+    </div>
 </body>
 </html>

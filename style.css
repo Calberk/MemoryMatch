@@ -27,6 +27,10 @@ body {
     justify-content: center;
 }
 
+.modal-header {
+    padding: none;
+}
+
 .intro-dialog {
     height: 40%;
     top: 35%;
@@ -228,9 +232,6 @@ body {
     flex-direction: row;
     align-items: flex-end;
     justify-content: center;
-    -ms-transform: rotate(180deg); 
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
 }
 
 .elixir-landscape {
@@ -266,7 +267,7 @@ body {
     transform: rotate(180deg);
 } */
 
-.king-landscape {
+.kingHappy-landscape, .kingCry-landscape {
     height: 100%;
     width: 100%;
     z-index: 100;
@@ -274,55 +275,47 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    -ms-transform: rotate(180deg); 
-    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Safari */
     transform: rotate(180deg);
 }
 
 .kingAngry-landscape {
     height: 100%;
     width: 100%;
-    z-index: 100;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    -ms-transform: rotate(180deg); 
-    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Safari */
     transform: rotate(180deg);
 }
 
-.king-portrait .cry-portrait, .king-portrait .happy-portrait {
+.kingCry-portrait .cry-portrait, .kingHappy-portrait .happy-portrait {
     height: 6%;
     position: absolute;
 }
 
-.king-landscape .cry-landscape, .king-landscape .happy-landscape {
-    width: 3.5vw;
+.kingCry-landscape .cry-landscape, .kingHappy-landscape .happy-landscape {
+    width: 4vw;
     position: absolute;
 }
 
 .kingAngry-landscape .angry-landscape {
     position: absolute;
-    height: 4.5vw;
-    z-index: 100;
+    height: 6.5vw;
 }
 
-.kingAngry-portrait .angry-portrait{
-    position: absolute;
-    height: 6%;
-    z-index: 100;
-}
-
-.angry-portrait,
+/* .kingAngry-portrait,
 .angry-landscape {
     display: none;
 }
 
-.cry-portrait,
-.cry-landscape {
+.kingCry-portrait,
+.kingcry-landscape {
     display: none;
-}
+} */
 
 /* 
 .about-me {
@@ -356,6 +349,11 @@ body {
     position: relative;
     top: 15%;
     color: gold;
+    font-size: 1.75vw;
+}
+
+.reset-title {
+    font-size: 1.85vw;
 }
 
 .games-played {
@@ -460,7 +458,6 @@ body {
 
 .front {
     /* border-radius: 15px; */
-    position: absolute;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     -webkit-transform: rotateY(180deg);
@@ -471,19 +468,18 @@ body {
     position: relative;
 }
 
+.front-img{
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
 .back{
     position: absolute;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
-}
-
-.front-img{
-    height: 100%;
-    max-width: 19vw;
     top: 0;
     left: 0;
 }
@@ -618,16 +614,29 @@ body {
 
 .extras-area-portrait {
     display: inline-flex;
-    flex-direction: column; 
-    justify-content: center;
+    flex-direction: row; 
+    justify-content: space-around;
     align-items: center;
     vertical-align: top;
 }
 
+.king-container-portrait {
+    height: 100%;
+    width: 10%;
+}
+
+.king-container-landscape {
+    height: 15%;
+    width: 100%;
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Safari */
+    transform: rotate(180deg);
+}
+
 .extras-area-landscape {
     display: inline-flex;
-    flex-direction: row; 
-    justify-content: center;
+    flex-direction: column; 
+    justify-content: space-around;
     align-items: center;
     vertical-align: top;
 }
@@ -776,6 +785,19 @@ body {
     top: 0.3%;
 }
 
+.front {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.front-img{
+    max-height: fit-content;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
 .extras-area-portrait {
     width: 100vw;
     height: 9vh;
@@ -855,6 +877,12 @@ body {
     margin: 0;
 }
 
+.kingAngry-portrait .angry-portrait{
+    position: absolute;
+    height: 7%;
+    z-index: 100;
+}
+
 .elixir-container-portrait {
     height: 100%;
     z-index: 100;
@@ -865,10 +893,10 @@ body {
 }
 
 .elixir-portrait {
-    height: 6%;
+    width: 7%;
     position: absolute;
     left: 8%;
-    bottom: 8%;
+    bottom: 7%;
 
     border-radius: 50% 25% 50% 50%;
     border: none;
@@ -877,7 +905,7 @@ body {
     -webkit-animation: pulse 1.5s infinite;
 }
 
-.king-portrait {
+.kingCry-portrait, .kingHappy-portrait {
     height: 100%;
     width: 110%;
     z-index: 100;
@@ -947,4 +975,18 @@ body {
         width: 40%;
         height: 20%;
     }
+}
+
+/* .kingAngry-portrait,
+.angry-landscape {
+    display: none;
+}
+
+.kingCry-portrait,
+.cry-landscape {
+    display: none;
+} */
+
+.hide{
+    display: none;
 }

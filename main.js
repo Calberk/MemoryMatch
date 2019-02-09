@@ -6,13 +6,12 @@ function initializeApp(){
     imageRandomizer();
     applyHandler();
     display_stats();
-    $("#reset-game").click(resetPress);
+    $("#reset-game").on('click', resetDisable);
     $('.playAgain').click(resetPress)
     initModal();
     pressPlay();
     changeAudio();
     resetDisable()
-    // progressBarOrientation()
 }
 
 var firstSelectedCard = null;
@@ -126,45 +125,44 @@ function cardClick() {
     if (!canIClick) {
         return;
     }
+    if ($(event.currentTarget).hasClass("rotate")) {
+        return;
+    }
     if (firstSelectedCard === null) {
+        hideCard(event.currentTarget);
         firstSelectedCard = event.currentTarget;
-        hideCard(firstSelectedCard);
-        // firstSelectedCard = $(event.currentTarget);
-        // pop();
-        
     } else {
-            secondSelectedCard = event.currentTarget;
-            if ($(secondSelectedCard).hasClass("rotate")) {
-                return;
-            }
         hideCard(event.currentTarget);
         secondSelectedCard = event.currentTarget;
-        // secondSelectedCard = $(event.currentTarget);
-        // if (secondSelectedCard.hasClass("hide")) {
-        //     return;
-        // }
-        // hideCard(secondSelectedCard);
-        // attempts++;
+
         if ($(firstSelectedCard).find(".front > img").attr("src") === $(secondSelectedCard).find(".front > img").attr("src")) {
+            // canIClick = false;
             matchSound();
-            $(firstSelectedCard).find(".front > img").animate({opacity: '0',}, 1500);
-            $(secondSelectedCard).find(".front > img").animate({opacity: '0',}, 1500);
-            setTimeout(clearCard, 1000);
-            // firstSelectedCard = null;
-            // secondSelectedCard = null;
+            $(firstSelectedCard).find(".front > img").animate({opacity: '0',}, 1300);
+            $(secondSelectedCard).find(".front > img").animate({opacity: '0',}, 1300);
+            // setTimeout(clearCard, 1000);
+            firstSelectedCard = null;
+            secondSelectedCard = null;
+            attempts++
             match_counter++;
             if (match_counter === total_possible_matches) {
                 setTimeout(winModal, 1500)
-            }
+        }
         } else {
+        canIClick = false;
             attempts++;
             misMatchSound();
-            canIClick = false;
-            flipTimer();
+            setTimeout(function(){
+                canIClick = true;
+                $(firstSelectedCard).removeClass('rotate');
+                $(secondSelectedCard).removeClass('rotate');
+                firstSelectedCard = null;
+                secondSelectedCard = null;
+            }, 1000);
             remainingHealthCalculator();
-        }
     }
         display_stats()
+}
 }
 
 function hideCard(card){
@@ -173,24 +171,12 @@ function hideCard(card){
     
 }
 
-function clearCard(){
-    // $(firstSelectedCard).addClass('hide').removeClass('rotate');
-    // $(secondSelectedCard).addClass('hide').removeClass('rotate');
-    firstSelectedCard = null;
-    secondSelectedCard = null;
-}
+// function clearCard(){
 
-function flipTimer(){
-    setTimeout(unFlipCard, 1000);
-}
+//     firstSelectedCard = null;
+//     secondSelectedCard = null;
 
-function unFlipCard(){
-    $(firstSelectedCard).removeClass('rotate');
-    $(secondSelectedCard).removeClass('rotate');
-    firstSelectedCard = null;
-    secondSelectedCard = null;
-    canIClick = true;
-}
+// }
 
 // Game Info/Reset Section //
 
@@ -236,17 +222,17 @@ function resetHealthBar(){
     $('.barWarning-portrait').css('width', 40 + '%');
     $('.barDanger-portrait').css('width', 20 + '%');
 
-    $('.king-portrait > .happy-portrait').show()
-    $('.king-portrait > .cry-portrait').hide()
-    $('.kingAngry-portrait > .angry-portrait').hide();
+    $('.kingHappy-portrait').removeClass('hide');
+    // $('.king-portrait').hide()
+    $('.kingAngry-portrait').addClass('hide');
 
     $('.barSuccess-landscape').css('height', 40 + '%');
     $('.barWarning-landscape').css('height', 40 + '%');
     $('.barDanger-landscape').css('height', 20 + '%');
 
-    $('.king-portrait > .happy-landscape').show()
-    $('.king-portrait > .cry-landscape').hide()
-    $('.kingAngry-portrait > .angry-landscape').hide();
+    $('.king-landscape').removeClass('hide');
+    // $('.king-portrait').hide()
+    $('.kingAngry-landscape').addClass('hide');
 
 }
 
@@ -257,19 +243,6 @@ function resetDisable(){
         $('#reset-game').on('click', resetPress)
     }
 }
-
-// Game progress bar and end//
-
-// function progressBarOrientation(){
-//     if(window.innerHeight > window.innerWidth){
-//         $(".extras-area-portrait").toggleClass('hide');
-//         $(".extras-area-landscape").toggleClass('hide');
-
-//     }else{
-//         $(".extras-area-portrait").toggleClass('hide');
-//         $(".extras-area-landscape").toggleClass('hide');
-    // }
-// }
 
 
 function remainingHealthCalculator(){
@@ -288,14 +261,14 @@ function remainingHealthCalculator(){
         if(lifePoints >= 60 ){
             $('.barSuccess-portrait').css('width', (lifePoints-60) + '%');
             if(lifePoints === 60){
-                $('.king-portrait > .happy-portrait').hide()
-                $('.king-portrait > .cry-portrait').show()
+                $('.kingHappy-portrait').addClass('hide');
+                $('.kingCry-portrait').removeClass('hide');
             }
         }else if(lifePoints >=20){
             $('.barWarning-portrait').css('width', (lifePoints-20) + '%');
             if(lifePoints ===20){
-                $('.king-portrait > .cry-portrait').hide();
-                $('.kingAngry-portrait > .angry-portrait').show();
+                $('.kingCry-portrait').addClass('hide');
+                $('.kingAngry-portrait').removeClass('hide');
             }
         }else{
             $('.barDanger-portrait').css('width', (lifePoints) + '%');
@@ -304,14 +277,14 @@ function remainingHealthCalculator(){
         if(lifePoints >= 60 ){
             $('.barSuccess-landscape').css('height', (lifePoints-60) + '%');
             if(lifePoints === 60){
-                $('.king-landscape > .happy-landscape').hide()
-                $('.king-landscape > .cry-landscape').show()
+                $('.kingHappy-landscape').addClass('hide');
+                $('.kingCry-landscape').removeClass('hide');
             }
         }else if(lifePoints >=20){
             $('.barWarning-landscape').css('height', (lifePoints-20) + '%');
             if(lifePoints ===20){
-                $('.king-landscape > .cry-landscape').hide();
-                $('.kingAngry-landscape > .angry-landscape').show();
+                $('.kingCry-landscape').addClass('hide');
+                $('.kingAngry-landscape').removeClass('hide');
             }
         }else{
             $('.barDanger-landscape').css('height', (lifePoints) + '%');
