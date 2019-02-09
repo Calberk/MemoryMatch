@@ -6,12 +6,11 @@ function initializeApp(){
     imageRandomizer();
     applyHandler();
     display_stats();
-    $("#reset-game").on('click', resetDisable);
-    $('.playAgain').click(resetPress)
     initModal();
     pressPlay();
     changeAudio();
-    resetDisable()
+    $("#reset-game").click(resetDisable);
+    $('.playAgain').click(resetPress)
 }
 
 var firstSelectedCard = null;
@@ -144,6 +143,7 @@ function cardClick() {
             firstSelectedCard = null;
             secondSelectedCard = null;
             attempts++
+            $('.reset').removeClass('disable');
             match_counter++;
             if (match_counter === total_possible_matches) {
                 setTimeout(winModal, 1500)
@@ -151,6 +151,7 @@ function cardClick() {
         } else {
         canIClick = false;
             attempts++;
+            $('.reset').removeClass('disable');
             misMatchSound();
             setTimeout(function(){
                 canIClick = true;
@@ -170,13 +171,6 @@ function hideCard(card){
     $(card).addClass('rotate');
     
 }
-
-// function clearCard(){
-
-//     firstSelectedCard = null;
-//     secondSelectedCard = null;
-
-// }
 
 // Game Info/Reset Section //
 
@@ -223,24 +217,24 @@ function resetHealthBar(){
     $('.barDanger-portrait').css('width', 20 + '%');
 
     $('.kingHappy-portrait').removeClass('hide');
-    // $('.king-portrait').hide()
+    $('.kingCry-portrait').addClass('hide');
     $('.kingAngry-portrait').addClass('hide');
 
     $('.barSuccess-landscape').css('height', 40 + '%');
     $('.barWarning-landscape').css('height', 40 + '%');
     $('.barDanger-landscape').css('height', 20 + '%');
 
-    $('.king-landscape').removeClass('hide');
-    // $('.king-portrait').hide()
+    $('.kingHappy-landscape').removeClass('hide');
+    $('.kingCry-landscape').addClass('hide');
     $('.kingAngry-landscape').addClass('hide');
 
 }
 
 function resetDisable(){
     if(attempts === 0){
-        $('#reset-game').off('click');
+        return;
     }else {
-        $('#reset-game').on('click', resetPress)
+        $('#reset-game').on('click', resetPress())
     }
 }
 

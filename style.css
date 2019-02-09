@@ -657,7 +657,9 @@ body {
     width: 100%
 }
 
-
+.disable {
+    cursor: not-allowed;
+}
 
 /* PORTRAIT */
 
