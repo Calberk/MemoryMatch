@@ -1,106 +1,207 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <script type="text/javascript" src="main.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <link href="http://learning-fuze.github.io/memory_match/v0.1/script.js">
-    <title>Document</title>
+
+        <title>Clash & Match</title>
+    <!-- ==============================================
+    Favicons
+    =============================================== -->
+
+        <link rel="shortcut icon" href="images/logo4.png">
+    <!-- ==============================================
+    CSS
+    =============================================== --> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   
+        <link rel="stylesheet" type="text/css" href="style.css">  
+        <script type="text/javascript" src="main.js"></script>
 </head>
 <body>
-    <header class="head-container">Clash Royale: Match</header>
-    <div>
-    <div class="games-played">
-        <div class="label">Games Played</div>
-        <div class="value"></div>
+    <div id="intro_modal" class="modal fade" role="dialog" style="display: flex">
+        <img class="intro-image" src="images/npc.png">
+        <div class="modal-dialog intro-dialog">
+            <div class="modal-content intro-content">
+                <div class="modal-header intro-header">
+                    <h2 class="modal-title intro-title text-center ">WELCOME TO<br>CLASH AND MATCH</h2>  
+                </div>
+                <div class="botum">
+                    <div class="modal-body intro-body">
+                        <p class=" text-center ">Enjoy a fun game of memory match.<br>To win, find all the matching pairs!</p>
+                        
+                    </div>
+                    <div class="modal-footer intro-footer text-center ">
+                        <button id="playBtn" type="button" class="playBtn" data-dismiss="modal">PLAY</button>
+                    </div> 
+                </div>
+            </div>
+        </div>         
     </div>
-    <div class="attempts">
-        <div class="label">Attemps</div>
-        <div class="value"></div>
-    </div>
-    <div class="accuracy">
-        <div class="label">Accuracy</div>
-        <div class="value"></div>
-    </div>
-    <button type="button" class="reset">Rest Game</button>
-    </div>
-    <div id="game-area">
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-        <div class="card">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-    </div>
-    <div class="extras-area"></div>
 
+    <div id="winModal" class= " modal fade" role="dialog">
+        <div class="image-container2">
+            <img class="win-image win-image3" src="images/winChar.png">
+        </div>
+        <div class="modal-dialog win-dialog">
+            <div class="modal-content win-content">
+                <div class="modal-header win-header">
+                    <!-- <h2 class="modal-title win-title text-center ">CONGRATULATION<br>YOU WIN!</h2>   -->
+                </div>
+                <div class="botum">
+                    <div class="modal-body win-body">
+                        <h2 class="modal-title win-title text-center ">CONGRATULATIONS<br>YOU WIN!</h2>
+                    </div>
+                    <div class="modal-footer win-footer text-center ">
+                        <button id="playAgain" type="button" class="playAgain" data-dismiss="modal">PLAY AGAIN</button>
+                    </div>                    
+                </div>
+            </div>
+        </div> 
+        <div class="image-container">
+                <img class="win-image win-image1" src="images/Blue_King.png">
+                <img class="win-image win-image2" src="images/winKnight.png">
+        </div>        
+    </div>
+    <div id="loseModal" class= " modal fade" role="dialog">
+            <div class="image-container2">
+                <img class="lose-image lose-image3" src="images/kingCry.png">
+            </div>
+            <div class="modal-dialog lose-dialog">
+                <div class="modal-content lose-content">
+                    <div class="modal-header lose-header">
+                        <!-- <h2 class="modal-title lose-title text-center ">CONGRATULATION<br>YOU WIN!</h2>   -->
+                    </div>
+                    <div class="botum">
+                        <div class="modal-body lose-body">
+                            <h2 class="modal-title lose-title text-center ">YOU LOST!<br>BETTER LUCK NEXT TIME</h2>
+                        </div>
+                        <div class="modal-footer lose-footer text-center ">
+                            <button id="playAgain" type="button" class="playAgain" data-dismiss="modal">PLAY AGAIN</button>
+                        </div>                    
+                    </div>
+                </div>
+            </div> 
+            <div class="image-container">
+                    <img class="lose-image lose-image1" src="images/kingAngry.png">
+                    <img class="lose-image lose-image2" src="images/kingAngry.png">
+            </div>        
+        </div>
+        
+    <header class="head-container banner">
+        <div class="bannerContainer">
+            <!-- <div class="logo">
+                <img class="logo-img" src="images/logo2.png">
+            </div> -->
+            <div class="title">
+                <div class="title-container">
+                    <p class="game-title">CLASH AND MATCH</p>
+                </div>
+                <!-- <div class="flag-container">
+                    <img class="flag" src="images/flag.jpg">
+                </div> -->
+            </div>
+            <div class="logo logo-right">
+                <img class="logo-img" src="images/logo2.png">
+            </div>
 
+                    <!-- AUDIO -->
+        <audio id="background-music">
+            <source src="sounds/clash_royale_battle.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="background-music2">
+                <source src="sounds/reset.mp3" type="audio/mpeg">
+            </audio>
+        <audio id="background-music3">
+                <source src="sounds/gold.mp3" type="audio/mpeg">
+        </audio>        
+        <audio id="background-music4">
+                <source src="sounds/barb_king.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="background-music5">
+            <source src="sounds/pop.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="background-music6">
+                <source src="sounds/game_win.mp3" type="audio/mpeg">
+        </audio>
+        <div id="my_audio">
+            <div id="sound_toggle" class="speaker play" ></div>
+        </div>
+        </div>
 
+    </header>
+
+    <aside class="game-info">
+        <div class="infoContainer">
+            <div class="games-played">
+                <div class="label">Games Played</div>
+                <div class="value"></div>
+            </div>
+            <div class="attempts">
+                <div class="label">Attempts</div>
+                <div class="value"></div>
+            </div>
+            <div class="accuracy">
+                <div class="label">Accuracy</div>
+                <div class="accuracyValue"></div>
+            </div>
+            <div class="reset">
+                <div class="vertical-font">Reset</div>
+                <img id="reset-game" src="images/logo.png"/>
+            </div>
+        </div>
+        
+    </aside>
+
+    <section class="game-area board-img">
+    </section>
+
+    <div class="extras-area-portrait">
+        <div class="progress-portrait">
+            <div class="progress-bar progress-bar-danger progress-bar-striped barDanger-portrait" style="width: 20%">
+                <div class="kingAngry-portrait">
+                    <img class="angry-portrait" src="images/kingAngry.png">
+                </div>   
+                <div class="elixir-container-portrait">
+                        <img class="elixir-portrait" src="images/elixir_big_icon.png">
+                </div>      
+            </div>
+            <div class="progress-bar progress-bar-warning progress-bar-striped barWarning-portrait" style="width: 40%">
+                <div class="king-portrait">
+                    <img class="cry-portrait" src="images/kingCry.png">
+                </div>    
+            </div>
+            <div class="progress-bar progress-bar-success progress-bar-striped barSuccess-portrait" style="width: 40%">
+                <div class="king-portrait">
+                    <img class="happy-portrait" src="images/kingHappy.png">
+                </div>    
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="extras-area-landscape">
+            <div class="progress-landscape">
+                <div class="progress-bar progress-bar-danger progress-bar-striped barDanger-landscape" style="height: 20%">
+                    <div class="kingAngry-landscape">
+                        <img class="angry-landscape" src="images/kingAngry.png">
+                    </div> 
+                    <div class="elixir-container-landscape">
+                            <img class="elixir-landscape" src="images/elixir_big_icon.png">
+                    </div>        
+                </div>
+                <div class="progress-bar progress-bar-warning progress-bar-striped barWarning-landscape" style="height: 40%">
+                    <div class="king-landscape">
+                        <img class="cry-landscape" src="images/kingCry.png">
+                    </div>    
+                </div>
+                <div class="progress-bar progress-bar-success progress-bar-striped barSuccess-landscape" style="height: 40%">
+                    <div class="king-landscape">
+                        <img class="happy-landscape" src="images/kingHappy.png">
+                    </div>     
+                </div>
+            </div>
+        </div>
 </body>
 </html>

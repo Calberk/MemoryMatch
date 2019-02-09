@@ -1,6 +1,950 @@
+@font-face {
+    font-family: Clash;
+    src: url("fonts/Supercell-magic-webfont.ttf");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-size: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    background-image: url("images/board-background.png");
+    background-repeat: no-repeat;
+    background-size: cover; 
+    font-family: Clash;
+}
+
+#intro-modal {
+    display: flex;
+}
+
+.modal-open .modal {
+    justify-content: center;
+}
+
+.intro-dialog {
+    height: 40%;
+    top: 35%;
+}
+
+.intro-image {
+    /* background-image: url("images/npc.png"); */
+    height: 30%;
+    top: 5%;
+    background-repeat: no-repeat;
+    background-size: contain; 
+    position: absolute;
+}
+
+.intro-title, .lose-title {
+    color: gold;
+    text-shadow: 2px 5px 2px black, 0 0 15px black, 0 0 12px black;
+}
+
+.intro-header h2 {
+    font-size: 24px;
+}
+
+.intro-content, .lose-content {
+    background: transparent;
+}
+
+
+.intro-body p {
+    font-size: 20px;
+    color: white;
+}
+
+.intro-footer, .lose-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-backdrop.in {
+    opacity: 0.9;
+    background: black
+}
+
+.modal-footer .playBtn {
+    border-radius: 5px;
+    background: #fff;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 0 2px rgba(255,2525,255, 0.5);
+    animation: pulse 1.5s infinite;
+    -webkit-animation: pulse 1.5s infinite;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: -1px;
+}
+
+.modal-footer .playBtn:hover {
+  -webkit-animation: none;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    transform: scale(.9);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 15px rgba(255,255,255, 0);
+  }
+    100% {
+    transform: scale(.9);
+    box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+  }
+}
+
+/* .modal-content {
+    background: transparent;
+} */
+
 .head-container {
+    /* width: 100%; */
+    height: 12vh;
+    position: relative;
+    font-family: Clash;
+    /* background-image: url("images/banner1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; */
+}
+
+.bannerContainer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner {
+    background-position: center;
+}
+
+.logo, .title {
+    display: inline-block;
+    font-size: 1rem;
+}
+
+.logo {
+    height: 100%;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+}
+
+.logo-img {
+    position: relative;
+    /* left: 50%;
+    top: 6%; */
+    height: 80%;
+    position: relative;
+    bottom: 3px;
+}
+
+.title {
+    font-size: 40px;
+    color: white;
+    position: relative;
+    vertical-align: top;
+    font-family: Clash;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-title {   
+    color: gold;
+    text-align: center;
+    text-shadow: 2px 5px 2px black, 0 0 15px black, 0 0 20px black;
+    font-size: 40px;
+    position: relative;
+    font-family: Clash;
+    margin: 0;
+}
+
+.flag {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+}
+
+.flag-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.logo-right {
+    right: 10px;
+}
+
+.speaker {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    right: 0;
+    top: 25%;
+}
+
+.play {
+    background: url("images/speaker.png");
+    background-repeat: no-repeat;
+    height: 50%;
+    width: 50px;
+}
+
+.mute {
+    background: url("images/speakerOff.png");
+    background-repeat: no-repeat;
+    height: 50%;
+    width: 50px;
+}
+
+/* .barDanger {
+    width: 40%;
+    display: flex;
+    align-items: center;
+} */
+
+
+.elixir-container-landscape {
+    height: 100%;
+    z-index: 100;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    -ms-transform: rotate(180deg); 
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.elixir-landscape {
+    width: 3.5vw;
+    top: 185%;
+    position: absolute;
+    bottom: -25%;
+    border-radius: 50% 25% 50% 50%;
+    border: none;
+    box-shadow: 0 0 20px rgba(255,2525,255, 0.3), 0 0 30px rgba(255,2525,255, 0.3);
+    animation: pulse 1.5s infinite;
+    -webkit-animation: pulse 1.5s infinite;
+}
+
+.extras-area-portrait .progress-portrait {
+    height: 30px;
+    margin-bottom: 0;
+    border: 5px ridge gold;
+    border-radius: 10px;
+}
+
+.extras-area-landscape .progress-landscape {
+    width: 30px;
+    margin-bottom: 0;
+    border: 5px ridge gold;
+    border-radius: 10px;
+}
+
+/* .barSuccess-landscape, .barWarning-landscape,
+.barDanger-landscape {
+    -ms-transform: rotate(180deg); 
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+} */
+
+.king-landscape {
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    -ms-transform: rotate(180deg); 
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.kingAngry-landscape {
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    -ms-transform: rotate(180deg); 
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.king-portrait .cry-portrait, .king-portrait .happy-portrait {
+    height: 6%;
+    position: absolute;
+}
+
+.king-landscape .cry-landscape, .king-landscape .happy-landscape {
+    width: 3.5vw;
+    position: absolute;
+}
+
+.kingAngry-landscape .angry-landscape {
+    position: absolute;
+    height: 4.5vw;
+    z-index: 100;
+}
+
+.kingAngry-portrait .angry-portrait{
+    position: absolute;
+    height: 6%;
+    z-index: 100;
+}
+
+.angry-portrait,
+.angry-landscape {
+    display: none;
+}
+
+.cry-portrait,
+.cry-landscape {
+    display: none;
+}
+
+/* 
+.about-me {
+    width: 30%;
+    height: 100%;
+    background-color: yellow;
+} */
+
+.game-info, .game-area, .extras-area-portrait, .extras-area-landscape {
+    display: inline-block;
+    font-size: 1rem;
+    color: gold;
+    text-align: center;
+    text-shadow: 2px 2px 2px black;
+    /* text-shadow: 2px 2px 2px black, 2px 0px 10px navajowhite, 0 0 5px red; */
+}
+
+.game-info {
+    width: 14vw;
+    height: 88vh;
+    /* background-color: black; */
+    font-size: 18px;
+    vertical-align: top;
+    border: 10px ridge gold;
+    background-color: rgba(0,0,0, 0.5);
+    /* border-right: none; */
+    font-family: Clash;
+}
+
+.label {
+    position: relative;
+    top: 15%;
+    color: gold;
+}
+
+.games-played {
     width: 100%;
     height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-family: Clash;
+}
+
+.infoContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.attempts {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+    font-family: Clash;
+}
+
+.accuracy {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+    font-family: Clash;
+}
+
+.value {
+    right: 2%;
+    position: relative;
+}
+
+.accuracyValue {
+    position: relative;
+}
+
+.reset {
+    width: 100%;
+    height: 20%;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#reset-game {
+    background-size: contain;
+    height: 60%;
+    position: relative;
+    margin: auto;
+}
+
+.game-area {
+    width: 72vw;
+    height: 88vh;
+    border: 10px ridge gold;
+    border-left: none;
+}
+
+.board-img {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
     background-color: black;
 }
 
+/* .card-container {
+    width: 16.6%;
+    height: 33%;
+    float: left;
+    margin: 0;
+    cursor: pointer;
+} */
+
+.card {
+    /* height: 100%;
+    top: 2%;
+    left: 2%; */
+    position: relative;
+    /* border-radius: 15px; */
+    width: 19.9%;
+    height: 24.8%;
+    left: 0.3%;
+    top: 0.3%;
+    float: left;
+    margin: 0;
+    transition: all 0.5s ease;
+    transform-style: preserve-3d;
+}
+
+.front {
+    /* border-radius: 15px; */
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.back{
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.front-img{
+    height: 100%;
+    max-width: 19vw;
+    top: 0;
+    left: 0;
+}
+
+.back-img{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: 5px ridge goldenrod; 
+    border-radius: 10px;
+}
+
+.extras-area-portrait, .extras-area-landscape {
+    width: 14vw;
+    height: 88vh;
+    border: 10px ridge gold;
+    background-color: rgba(0,0,0, 0.5);
+    /* border-left:none; */
+    /* background-color: black; */
+}
+
+.shadow {
+    box-shadow: 10px 10px 20px black;
+}
+
+.rotate {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.hide {
+    display: none;
+}
+
+.win-dialog {
+    width: 50%;
+    height: 25%;
+    margin: 0 auto;
+}
+
+.image-container2 {
+    height: 28%;
+    /* width: 100%; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 4%;
+}
+
+.image-container {
+    height: 28%;
+    /* width: 100%; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.win-image {
+    /* background-image: url("images/npc.png"); */
+    height: 100%;
+    top: 5%;
+    background-repeat: no-repeat;
+    background-size: contain; 
+    /* position: absolute; */
+    margin: 0 10%;
+}
+
+.win-title {
+    color: gold;
+    text-shadow: 2px 5px 2px black, 0 0 15px black, 0 0 12px black;
+}
+
+.win-body h2 {
+    font-size: 16px;
+}
+
+.win-content {
+    height: 90%;
+    background: transparent;
+}
+
+
+.win-body p {
+    font-size: 20px;
+    color: white;
+}
+
+.win-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-backdrop.in {
+    opacity: 0.9;
+    background: black
+}
+
+.modal-footer .playAgain {
+    border-radius: 5px;
+    background: #fff;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 0 2px rgba(255,2525,255, 0.5);
+    animation: pulse 1.5s infinite;
+    -webkit-animation: pulse 1.5s infinite;
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: -1px;
+}
+
+.modal-footer .playAgain:hover {
+    -webkit-animation: none;
+}
+
+.lose-body h2 {
+    font-size: 20px
+}
+
+.lose-content .lose-header {
+    padding: 0;
+}
+
+.lose-dialog {
+    margin: 0 auto;
+}
+
+.lose-image {
+    height: 100%;
+    margin: 0 10%;
+}
+
+.extras-area-portrait {
+    display: inline-flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+}
+
+.extras-area-landscape {
+    display: inline-flex;
+    flex-direction: row; 
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+}
+
+.progress-portrait {
+    width: 80%;
+}
+
+.progress-landscape {
+    height: 80%;
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Safari */
+    transform: rotate(180deg);
+}
+
+.barSuccess-landscape, .barWarning-landscape, 
+.barDanger-landscape {
+    width: 100%
+}
+
+
+
+/* PORTRAIT */
+
+@media (orientation: landscape) {
+    .extras-area-portrait {
+        display: none;
+    }
+}
+
+/* PORTRAIT */
+
+@media  (orientation: portrait) {
+
+.intro-dialog {
+    top: 40%;
+}
+
+.intro-image {
+    /* background-image: url("images/npc.png"); */
+    height: 25%;
+    top: 10%;
+    background-repeat: no-repeat;
+    background-size: contain; 
+    position: absolute;
+}
+
+.intro-header h2 {
+    font-size: 30px
+}
+
+.intro-body p {
+    font-size: 27px;
+}
+
+.modal-footer .playBtn {
+    font-size: 30px;
+}
+
+.modal-footer .playAgain {
+    font-size: 25px;
+}
+
+.lose-body h2 {
+    font-size: 30px
+}
+
+.intro-image {
+    /* background-image: url("images/npc.png"); */
+    height: 25%;
+    top: 10%;
+    background-repeat: no-repeat;
+    background-size: contain; 
+    position: absolute;
+}
+
+.logo-img {
+    position: relative;
+    height: 60%;
+    position: relative;
+}
+
+.label {
+    font-size: 3vw;
+}
+
+.game-title {
+    font-size: 5vw;
+}
+
+.game-info {
+    font-size: 3vw;
+    width: 100vw;
+    height: auto;
+    border-bottom: none;
+}
+
+.infoContainer {
+    height: 80%;
+    background-color: rgba(0,0,0, 0.5);
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+        font-family: Clash;
+}
+
+.games-played {
+    height: 100px;
+}
+
+.attempts {
+    height: 100px;
+}
+
+.accuracy {
+    height: 100px;
+}
+
+.reset {
+    height: 100px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#reset-game {
+    /* background-size: contain; */
+    width: auto;
+    height: 60%;
+    position: relative;
+    margin: 0 auto;
+}
+
+.game-area{
+    width: 100vw;
+    height: 65vh;
+    border-left: 10px ridge gold;
+}
+
+.card {
+    width: 19.9%;
+    height: 24.8%;
+    left: 0.3%;
+    top: 0.3%;
+}
+
+.extras-area-portrait {
+    width: 100vw;
+    height: 9vh;
+    border-top: none;
+} 
+
+.win-dialog {
+    height: 25%;
+}
+
+.win-body h2 {
+    font-size: 30px
+}
+
+.image-container2 {
+    height: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20%;
+}
+
+.image-container {
+    height: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.win-image {
+    /* background-image: url("images/npc.png"); */
+    height: 100%;
+    top: 5%;
+    background-repeat: no-repeat;
+    background-size: contain; 
+    /* position: absolute; */
+    margin: 0 10%;
+}
+
+.lose-dialog {
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.lose-body h2 {
+    font-size: 30px
+}
+
+.lose-container2 {
+    height: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20%;
+}
+
+.lose-container {
+    height: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.lose-image {
+    /* background-image: url("images/npc.png"); */
+    height: 100%;
+    top: 5%;
+    background-repeat: no-repeat;
+    background-size: contain; 
+    /* position: absolute; */
+    margin: 0;
+}
+
+.elixir-container-portrait {
+    height: 100%;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.elixir-portrait {
+    height: 6%;
+    position: absolute;
+    left: 8%;
+    bottom: 8%;
+
+    border-radius: 50% 25% 50% 50%;
+    border: none;
+    box-shadow: 0 0 20px rgba(255,2525,255, 0.3), 0 0 30px rgba(255,2525,255, 0.3);
+    animation: pulse 1.5s infinite;
+    -webkit-animation: pulse 1.5s infinite;
+}
+
+.king-portrait {
+    height: 100%;
+    width: 110%;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 5%;
+}
+
+.kingAngry-portrait {
+    height: 100%;
+    width: 120%;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 10%;
+    flex-direction: column;
+}
+
+.extras-area-landscape {
+    display: none;
+}
+
+}
+
+@media (min-width: 1366px) and (orientation: landscape){
+    .game-info {
+        font-size: 27px;
+    }
+
+    .intro-header h2 {
+        font-size: 35px;
+    }
+
+    .intro-body p {
+        font-size: 24px;
+    }    
+
+    .modal-footer .playBtn {
+        font-size: 30px;
+    }
+
+    .win-body h2 {
+        font-size: 30px;
+    }
+
+    .modal-footer .playAgain {
+        font-size: 20px;
+    }
+    
+    .modal-header {
+        padding: none;
+    }
+
+    .win-dialog {
+        width: 40%;
+        height: 20%;
+    }
+
+    .lose-body h2 {
+        font-size: 30px;
+    }
+
+    .lose-dialog {
+        width: 40%;
+        height: 20%;
+    }
+}
