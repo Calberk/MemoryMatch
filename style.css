@@ -37,7 +37,6 @@ body {
 }
 
 .intro-image {
-    /* background-image: url("images/npc.png"); */
     height: 30%;
     top: 5%;
     background-repeat: no-repeat;
@@ -91,32 +90,10 @@ body {
   -webkit-animation: none;
 }
 
-@-webkit-keyframes pulse {
-  0% {
-    transform: scale(.9);
-  }
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 15px rgba(255,255,255, 0);
-  }
-    100% {
-    transform: scale(.9);
-    box-shadow: 0 0 0 0 rgba(255,255,255, 0);
-  }
-}
-
-/* .modal-content {
-    background: transparent;
-} */
-
 .head-container {
-    /* width: 100%; */
     height: 12vh;
     position: relative;
     font-family: Clash;
-    /* background-image: url("images/banner1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover; */
 }
 
 .bannerContainer {
@@ -136,10 +113,9 @@ body {
 }
 
 .logo {
-    height: 100%;
-    flex-direction: column;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .logo-img {
@@ -218,13 +194,6 @@ body {
     width: 50px;
 }
 
-/* .barDanger {
-    width: 40%;
-    display: flex;
-    align-items: center;
-} */
-
-
 .elixir-container-landscape {
     height: 100%;
     z-index: 100;
@@ -232,13 +201,16 @@ body {
     flex-direction: row;
     align-items: flex-end;
     justify-content: center;
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Safari */
+    transform: rotate(180deg);
 }
 
 .elixir-landscape {
     width: 3.5vw;
-    top: 185%;
-    position: absolute;
+    max-height: 6vh;
     bottom: -25%;
+    position: absolute;
     border-radius: 50% 25% 50% 50%;
     border: none;
     box-shadow: 0 0 20px rgba(255,2525,255, 0.3), 0 0 30px rgba(255,2525,255, 0.3);
@@ -260,13 +232,6 @@ body {
     border-radius: 10px;
 }
 
-/* .barSuccess-landscape, .barWarning-landscape,
-.barDanger-landscape {
-    -ms-transform: rotate(180deg); 
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
-} */
-
 .kingHappy-landscape, .kingCry-landscape {
     height: 100%;
     width: 100%;
@@ -274,7 +239,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     -ms-transform: rotate(180deg); /* IE 9 */
     -webkit-transform: rotate(180deg); /* Safari */
     transform: rotate(180deg);
@@ -293,36 +258,16 @@ body {
 }
 
 .kingCry-portrait .cry-portrait, .kingHappy-portrait .happy-portrait {
-    height: 6%;
-    position: absolute;
+    height: 80%;
 }
 
 .kingCry-landscape .cry-landscape, .kingHappy-landscape .happy-landscape {
-    width: 4vw;
-    position: absolute;
+    height: 100%
 }
 
 .kingAngry-landscape .angry-landscape {
-    position: absolute;
-    height: 6.5vw;
+    height: 100%
 }
-
-/* .kingAngry-portrait,
-.angry-landscape {
-    display: none;
-}
-
-.kingCry-portrait,
-.kingcry-landscape {
-    display: none;
-} */
-
-/* 
-.about-me {
-    width: 30%;
-    height: 100%;
-    background-color: yellow;
-} */
 
 .game-info, .game-area, .extras-area-portrait, .extras-area-landscape {
     display: inline-block;
@@ -432,20 +377,8 @@ body {
     background-color: black;
 }
 
-/* .card-container {
-    width: 16.6%;
-    height: 33%;
-    float: left;
-    margin: 0;
-    cursor: pointer;
-} */
-
 .card {
-    /* height: 100%;
-    top: 2%;
-    left: 2%; */
     position: relative;
-    /* border-radius: 15px; */
     width: 19.9%;
     height: 24.8%;
     left: 0.3%;
@@ -457,7 +390,6 @@ body {
 }
 
 .front {
-    /* border-radius: 15px; */
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     -webkit-transform: rotateY(180deg);
@@ -498,8 +430,6 @@ body {
     height: 88vh;
     border: 10px ridge gold;
     background-color: rgba(0,0,0, 0.5);
-    /* border-left:none; */
-    /* background-color: black; */
 }
 
 .shadow {
@@ -523,7 +453,6 @@ body {
 
 .image-container2 {
     height: 28%;
-    /* width: 100%; */
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -532,19 +461,16 @@ body {
 
 .image-container {
     height: 28%;
-    /* width: 100%; */
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
 .win-image {
-    /* background-image: url("images/npc.png"); */
     height: 100%;
     top: 5%;
     background-repeat: no-repeat;
     background-size: contain; 
-    /* position: absolute; */
     margin: 0 10%;
 }
 
@@ -622,12 +548,10 @@ body {
 
 .king-container-portrait {
     height: 100%;
-    width: 10%;
 }
 
 .king-container-landscape {
-    height: 15%;
-    width: 100%;
+    height: 10%;
     -ms-transform: rotate(180deg); /* IE 9 */
     -webkit-transform: rotate(180deg); /* Safari */
     transform: rotate(180deg);
@@ -661,6 +585,47 @@ body {
     cursor: not-allowed;
 }
 
+.errorShake{
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Game animations */
+
+@keyframes shake {
+10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+}
+
+20%, 80% {
+    transform: translate3d(2px, 0, 0);
+}
+
+30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+}
+
+40%, 60% {
+    transform: translate3d(4px, 0, 0);
+}
+} 
+
+@keyframes pulse {
+0% {
+    transform: scale(.9);
+}
+70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 15px rgba(255,255,255, 0);
+}
+    100% {
+    transform: scale(.9);
+    box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+}
+}
+
 /* PORTRAIT */
 
 @media (orientation: landscape) {
@@ -678,7 +643,6 @@ body {
 }
 
 .intro-image {
-    /* background-image: url("images/npc.png"); */
     height: 25%;
     top: 10%;
     background-repeat: no-repeat;
@@ -707,7 +671,6 @@ body {
 }
 
 .intro-image {
-    /* background-image: url("images/npc.png"); */
     height: 25%;
     top: 10%;
     background-repeat: no-repeat;
@@ -741,8 +704,7 @@ body {
     background-color: rgba(0,0,0, 0.5);
     display: flex;
     flex-direction: row;
-    /* justify-content: space-around; */
-        font-family: Clash;
+    font-family: Clash;
 }
 
 .games-played {
@@ -767,7 +729,6 @@ body {
 }
 
 #reset-game {
-    /* background-size: contain; */
     width: auto;
     height: 60%;
     position: relative;
@@ -832,7 +793,6 @@ body {
 }
 
 .win-image {
-    /* background-image: url("images/npc.png"); */
     height: 100%;
     top: 5%;
     background-repeat: no-repeat;
@@ -880,9 +840,7 @@ body {
 }
 
 .kingAngry-portrait .angry-portrait{
-    position: absolute;
-    height: 7%;
-    z-index: 100;
+    height: 80%;
 }
 
 .elixir-container-portrait {
@@ -895,11 +853,9 @@ body {
 }
 
 .elixir-portrait {
-    width: 7%;
+    max-width: 6vw;
     position: absolute;
-    left: 8%;
-    bottom: 7%;
-
+    left: 15%;
     border-radius: 50% 25% 50% 50%;
     border: none;
     box-shadow: 0 0 20px rgba(255,2525,255, 0.3), 0 0 30px rgba(255,2525,255, 0.3);
@@ -909,24 +865,20 @@ body {
 
 .kingCry-portrait, .kingHappy-portrait {
     height: 100%;
-    width: 110%;
-    z-index: 100;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-end;
-    padding-bottom: 5%;
+    align-items: center;
+    /* padding-bottom: 5%; */
 }
 
 .kingAngry-portrait {
     height: 100%;
-    width: 120%;
-    z-index: 100;
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    padding-bottom: 10%;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* padding-bottom: 10%; */
 }
 
 .extras-area-landscape {

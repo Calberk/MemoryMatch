@@ -150,6 +150,7 @@ function cardClick() {
         }
         } else {
         canIClick = false;
+        $(".king-container-portrait, .king-container-landscape").addClass('errorShake');
             attempts++;
             $('.reset').removeClass('disable');
             misMatchSound();
@@ -159,6 +160,7 @@ function cardClick() {
                 $(secondSelectedCard).removeClass('rotate');
                 firstSelectedCard = null;
                 secondSelectedCard = null;
+                $(".king-container-portrait, .king-container-landscape").removeClass('errorShake');
             }, 1000);
             remainingHealthCalculator();
     }
@@ -210,26 +212,6 @@ function reset_stats(){
     secondSelectedCard = null;
 }
 
-function resetHealthBar(){
-    lifePoints = 100;
-    $('.barSuccess-portrait').css('width', 40 + '%');
-    $('.barWarning-portrait').css('width', 40 + '%');
-    $('.barDanger-portrait').css('width', 20 + '%');
-
-    $('.kingHappy-portrait').removeClass('hide');
-    $('.kingCry-portrait').addClass('hide');
-    $('.kingAngry-portrait').addClass('hide');
-
-    $('.barSuccess-landscape').css('height', 40 + '%');
-    $('.barWarning-landscape').css('height', 40 + '%');
-    $('.barDanger-landscape').css('height', 20 + '%');
-
-    $('.kingHappy-landscape').removeClass('hide');
-    $('.kingCry-landscape').addClass('hide');
-    $('.kingAngry-landscape').addClass('hide');
-
-}
-
 function resetDisable(){
     if(attempts === 0){
         return;
@@ -238,6 +220,25 @@ function resetDisable(){
     }
 }
 
+function resetHealthBar(){
+    lifePoints = 100;
+    $('.barSuccess-portrait').css('width', 40 + '%');
+    $('.barWarning-portrait').css('width', 40 + '%');
+    $('.barDanger-portrait').css('width', 20 + '%');
+
+    $('.kingHappy-portrait').fadeIn();
+    $('.kingCry-portrait').addClass('hide');
+    $('.kingAngry-portrait').addClass('hide');
+
+    $('.barSuccess-landscape').css('height', 40 + '%');
+    $('.barWarning-landscape').css('height', 40 + '%');
+    $('.barDanger-landscape').css('height', 20 + '%');
+
+    $('.kingHappy-landscape').fadeIn();
+    $('.kingCry-landscape').addClass('hide');
+    $('.kingAngry-landscape').addClass('hide');
+
+}
 
 function remainingHealthCalculator(){
     var wrongAnswer = 5;
@@ -255,14 +256,14 @@ function remainingHealthCalculator(){
         if(lifePoints >= 60 ){
             $('.barSuccess-portrait').css('width', (lifePoints-60) + '%');
             if(lifePoints === 60){
-                $('.kingHappy-portrait').addClass('hide');
-                $('.kingCry-portrait').removeClass('hide');
+                $('.kingHappy-portrait').fadeOut();
+                $('.kingCry-portrait').fadeIn(700, function(){$('.kingCry-portrait').removeClass('hide')});
             }
         }else if(lifePoints >=20){
             $('.barWarning-portrait').css('width', (lifePoints-20) + '%');
             if(lifePoints ===20){
-                $('.kingCry-portrait').addClass('hide');
-                $('.kingAngry-portrait').removeClass('hide');
+                $('.kingCry-portrait').fadeOut();
+                $('.kingAngry-portrait').fadeIn(700, function(){$('.kingAngry-portrait').removeClass('hide')});
             }
         }else{
             $('.barDanger-portrait').css('width', (lifePoints) + '%');
@@ -271,14 +272,14 @@ function remainingHealthCalculator(){
         if(lifePoints >= 60 ){
             $('.barSuccess-landscape').css('height', (lifePoints-60) + '%');
             if(lifePoints === 60){
-                $('.kingHappy-landscape').addClass('hide');
-                $('.kingCry-landscape').removeClass('hide');
+                $('.kingHappy-landscape').fadeOut();
+                $('.kingCry-landscape').fadeIn(700, function(){$('.kingCry-landscape').removeClass('hide')});
             }
         }else if(lifePoints >=20){
             $('.barWarning-landscape').css('height', (lifePoints-20) + '%');
             if(lifePoints ===20){
-                $('.kingCry-landscape').addClass('hide');
-                $('.kingAngry-landscape').removeClass('hide');
+                $('.kingCry-landscape').fadeOut();
+                $('.kingAngry-landscape').fadeIn(700, function(){$('.kingAngry-landscape').removeClass('hide')});
             }
         }else{
             $('.barDanger-landscape').css('height', (lifePoints) + '%');
