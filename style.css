@@ -240,9 +240,6 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    -ms-transform: rotate(180deg); /* IE 9 */
-    -webkit-transform: rotate(180deg); /* Safari */
-    transform: rotate(180deg);
 }
 
 .kingAngry-landscape {
@@ -252,9 +249,6 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    -ms-transform: rotate(180deg); /* IE 9 */
-    -webkit-transform: rotate(180deg); /* Safari */
-    transform: rotate(180deg);
 }
 
 .kingCry-portrait .cry-portrait, .kingHappy-portrait .happy-portrait {
@@ -262,11 +256,13 @@ body {
 }
 
 .kingCry-landscape .cry-landscape, .kingHappy-landscape .happy-landscape {
-    height: 100%
+    height: 100%;
+    max-width: 6vw;
 }
 
 .kingAngry-landscape .angry-landscape {
-    height: 100%
+    height: 100%;
+    max-width: 6vw;
 }
 
 .game-info, .game-area, .extras-area-portrait, .extras-area-landscape {
@@ -552,9 +548,6 @@ body {
 
 .king-container-landscape {
     height: 10%;
-    -ms-transform: rotate(180deg); /* IE 9 */
-    -webkit-transform: rotate(180deg); /* Safari */
-    transform: rotate(180deg);
 }
 
 .extras-area-landscape {
