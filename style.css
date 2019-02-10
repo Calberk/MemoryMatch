@@ -149,7 +149,7 @@ body {
     color: gold;
     text-align: center;
     text-shadow: 2px 5px 2px black, 0 0 15px black, 0 0 20px black;
-    font-size: 40px;
+    font-size: 3vw;
     position: relative;
     font-family: Clash;
     margin: 0;
@@ -271,18 +271,15 @@ body {
     color: gold;
     text-align: center;
     text-shadow: 2px 2px 2px black;
-    /* text-shadow: 2px 2px 2px black, 2px 0px 10px navajowhite, 0 0 5px red; */
 }
 
 .game-info {
     width: 14vw;
     height: 88vh;
-    /* background-color: black; */
-    font-size: 18px;
+    font-size: 2vw;
     vertical-align: top;
     border: 10px ridge gold;
     background-color: rgba(0,0,0, 0.5);
-    /* border-right: none; */
     font-family: Clash;
 }
 
@@ -290,7 +287,6 @@ body {
     position: relative;
     top: 15%;
     color: gold;
-    font-size: 1.75vw;
 }
 
 .reset-title {
@@ -334,7 +330,6 @@ body {
 }
 
 .value {
-    right: 2%;
     position: relative;
 }
 
@@ -677,23 +672,19 @@ body {
     position: relative;
 }
 
-.label {
-    font-size: 3vw;
-}
-
 .game-title {
     font-size: 5vw;
 }
 
 .game-info {
-    font-size: 3vw;
-    width: 100vw;
-    height: auto;
+    height: 10vh;
+    width: 100%;
     border-bottom: none;
+    font-size: 3vw;
 }
 
 .infoContainer {
-    height: 80%;
+    height: 100%;
     background-color: rgba(0,0,0, 0.5);
     display: flex;
     flex-direction: row;
@@ -701,19 +692,23 @@ body {
 }
 
 .games-played {
-    height: 100px;
+    height: 100%;
 }
 
 .attempts {
-    height: 100px;
+    height: 100%;
 }
 
 .accuracy {
-    height: 100px;
+    height: 100%;
+}
+
+.reset-title {
+    font-size: 3vw;
 }
 
 .reset {
-    height: 100px;
+    height: 100%;
     position: relative;
     cursor: pointer;
     display: flex;
@@ -722,8 +717,7 @@ body {
 }
 
 #reset-game {
-    width: auto;
-    height: 60%;
+    width: 30%;
     position: relative;
     margin: 0 auto;
 }
@@ -756,7 +750,7 @@ body {
 
 .extras-area-portrait {
     width: 100vw;
-    height: 9vh;
+    height: 10vh;
     border-top: none;
 } 
 
