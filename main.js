@@ -79,6 +79,7 @@ function initModal(){
 
 function winModal(){
     $('#winModal').modal('show');
+    document.getElementById('background-music').pause();
     gameWinSound();
 }
 
@@ -194,6 +195,10 @@ function display_stats(){
 
 function resetPress(){
     resetSound();
+    document.getElementById('background-win').pause();
+    setTimeout(function(){
+        document.getElementById('background-music').play();
+    },3500)
     reset_stats();
     display_stats();
     $(".card").remove();
