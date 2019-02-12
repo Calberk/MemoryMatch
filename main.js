@@ -120,19 +120,19 @@ function setupGameCards(){
 
 // Card functionality //
 
-function cardClick() {
+function cardClick(event) {
     if (!canIClick) {
         return;
     }
-    if ($(event.currentTarget).hasClass("rotate")) {
+    if ($(this).hasClass("rotate")) {
         return;
     }
     if (firstSelectedCard === null) {
-        hideCard(event.currentTarget);
-        firstSelectedCard = event.currentTarget;
+        hideCard($(this));
+        firstSelectedCard = $(this);
     } else {
-        hideCard(event.currentTarget);
-        secondSelectedCard = event.currentTarget;
+        hideCard($(this));
+        secondSelectedCard = $(this);
 
         if ($(firstSelectedCard).find(".front > img").attr("src") === $(secondSelectedCard).find(".front > img").attr("src")) {
             // canIClick = false;
@@ -156,8 +156,8 @@ function cardClick() {
             misMatchSound();
             setTimeout(function(){
                 canIClick = true;
-                $(firstSelectedCard).removeClass('rotate');
-                $(secondSelectedCard).removeClass('rotate');
+                $(firstSelectedCard).removeClass('rotate').find('.back').removeClass('backClear');
+                $(secondSelectedCard).removeClass('rotate').find('.back').removeClass('backClear');
                 firstSelectedCard = null;
                 secondSelectedCard = null;
                 $(".king-container-portrait, .king-container-landscape").removeClass('errorShake');
@@ -171,7 +171,7 @@ function cardClick() {
 function hideCard(card){
     // $(card).addClass('hide');
     $(card).addClass('rotate');
-    
+    $(card).find('.back').addClass('backClear')
 }
 
 // Game Info/Reset Section //
@@ -295,7 +295,7 @@ function changeAudio(){
     var audio3 = document.getElementById("background-music3");
     var audio4 = document.getElementById("background-music4");
     var audio5 = document.getElementById("background-music5");
-    var audio6 = document.getElementById("background-music6");
+    var audio6 = document.getElementById("background-win");
     $("#sound_toggle").click(function(){
         if ($("#sound_toggle").hasClass('mute')) {
             $(this).removeClass('mute');
@@ -336,13 +336,13 @@ function misMatchSound(){
     ring.play();
 }
 
-function gameWinSound(){
+function pop(){
     var ring = document.getElementById("background-music5");
     ring.play();
 }
 
-function pop(){
-    var ring = document.getElementById("background-music6");
+function gameWinSound(){
+    var ring = document.getElementById("background-win");
     ring.play();
 }
 
