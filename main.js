@@ -195,10 +195,6 @@ function display_stats(){
 
 function resetPress(){
     resetSound();
-    document.getElementById('background-win').pause();
-    setTimeout(function(){
-        document.getElementById('background-music').play();
-    },3500)
     reset_stats();
     display_stats();
     $(".card").remove();
@@ -206,6 +202,11 @@ function resetPress(){
     applyHandler();
     imageRandomizer();
     resetHealthBar();
+    document.getElementById('background-win').pause();
+    $('.reset').addClass('disable');
+    setTimeout(function(){
+        document.getElementById('background-music').play();
+    },3500)
 }
 
 function reset_stats(){

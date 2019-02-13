@@ -27,13 +27,10 @@ body {
     justify-content: center;
 }
 
-.modal-header {
-    padding: none;
-}
-
 .intro-dialog {
     height: 40%;
     top: 35%;
+    margin: 0;
 }
 
 .intro-image {
@@ -50,16 +47,17 @@ body {
 }
 
 .intro-header h2 {
-    font-size: 24px;
+    font-size: 2vw;
 }
 
 .intro-content, .lose-content {
     background: transparent;
+    margin: 0 auto;
 }
 
 
 .intro-body p {
-    font-size: 20px;
+    font-size: 2vw;
     color: white;
 }
 
@@ -81,7 +79,7 @@ body {
     box-shadow: 0 0 2px rgba(255,2525,255, 0.5);
     animation: pulse 1.5s infinite;
     -webkit-animation: pulse 1.5s infinite;
-    font-size: 20px;
+    font-size: 2.5vw;
     text-align: center;
     letter-spacing: -1px;
 }
@@ -172,6 +170,10 @@ body {
     right: 10px;
 }
 
+#my_audio {
+    height: 100%
+}
+
 .speaker {
     display: flex;
     position: absolute;
@@ -183,15 +185,17 @@ body {
 .play {
     background: url("images/speaker.png");
     background-repeat: no-repeat;
-    height: 50%;
-    width: 50px;
+    background-size: contain;
+    height: 40%;
+    width: 11%;
 }
 
 .mute {
     background: url("images/speakerOff.png");
     background-repeat: no-repeat;
-    height: 50%;
-    width: 50px;
+    background-size: contain;
+    height: 45%;
+    width: 11%;
 }
 
 .elixir-container-landscape {
@@ -376,8 +380,14 @@ body {
     top: 0.3%;
     float: left;
     margin: 0;
+    cursor: pointer;
     transition: all 0.5s ease;
     transform-style: preserve-3d;
+}
+
+.back-img:hover {
+    transition: 0.5s ease;
+    transform: scale(0.9);
 }
 
 .front {
@@ -387,13 +397,14 @@ body {
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
     height: 100%;
-    flex-direction: column;
+    display: flex;
     justify-content: center;
     position: relative;
 }
 
 .front-img{
     height: 100%;
+    max-width: 15vw;    
     top: 0;
     left: 0;
 }
@@ -479,7 +490,7 @@ body {
 }
 
 .win-body h2 {
-    font-size: 16px;
+    font-size: 2vw;
 }
 
 .win-content {
@@ -489,7 +500,7 @@ body {
 
 
 .win-body p {
-    font-size: 20px;
+    font-size: 2vw;
     color: white;
 }
 
@@ -511,7 +522,7 @@ body {
     box-shadow: 0 0 2px rgba(255,2525,255, 0.5);
     animation: pulse 1.5s infinite;
     -webkit-animation: pulse 1.5s infinite;
-    font-size: 15px;
+    font-size: 2.5vw;
     text-align: center;
     letter-spacing: -1px;
 }
@@ -521,7 +532,7 @@ body {
 }
 
 .lose-body h2 {
-    font-size: 20px
+    font-size: 2vw;
 }
 
 .lose-content .lose-header {
@@ -645,23 +656,28 @@ body {
 }
 
 .intro-header h2 {
-    font-size: 30px
+    font-size: 2vh
 }
 
+.modal-content #win-head {
+    padding: 0;
+}
+
+
 .intro-body p {
-    font-size: 27px;
+    font-size: 2vw;
 }
 
 .modal-footer .playBtn {
-    font-size: 30px;
+    font-size: 2.5vh;
 }
 
 .modal-footer .playAgain {
-    font-size: 25px;
+    font-size: 2.5vh;
 }
 
 .lose-body h2 {
-    font-size: 30px
+    font-size: 2vh
 }
 
 .intro-image {
@@ -743,12 +759,12 @@ body {
 
 .front {
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .front-img{
-    max-height: fit-content;
+    max-height: 14vh;
     width: 100%;
     top: 0;
     left: 0;
@@ -765,12 +781,11 @@ body {
 }
 
 .win-body h2 {
-    font-size: 30px
+    font-size: 2vh
 }
 
 .image-container2 {
     height: 25%;
-    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -799,10 +814,11 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+
 }
 
 .lose-body h2 {
-    font-size: 30px
+    font-size: 2vh
 }
 
 .lose-container2 {
@@ -823,13 +839,10 @@ body {
 }
 
 .lose-image {
-    /* background-image: url("images/npc.png"); */
-    height: 100%;
-    top: 5%;
+    height: 80%;
+    /* top: 5%; */
     background-repeat: no-repeat;
     background-size: contain; 
-    /* position: absolute; */
-    margin: 0;
 }
 
 .kingAngry-portrait .angry-portrait{
@@ -886,27 +899,27 @@ body {
     }
 
     .intro-header h2 {
-        font-size: 35px;
+        font-size: 4vh;
     }
 
     .intro-body p {
-        font-size: 24px;
+        font-size: 2.9vh;
     }    
 
     .modal-footer .playBtn {
-        font-size: 30px;
+        font-size: 2.5vh;
     }
 
     .win-body h2 {
-        font-size: 30px;
+        font-size: 3.5vh;
     }
 
     .modal-footer .playAgain {
-        font-size: 20px;
+        font-size: 2.5vh;
     }
     
     .modal-header {
-        padding: none;
+        padding: 15px;
     }
 
     .win-dialog {
@@ -915,7 +928,7 @@ body {
     }
 
     .lose-body h2 {
-        font-size: 30px;
+        font-size: 3.5vh;
     }
 
     .lose-dialog {
