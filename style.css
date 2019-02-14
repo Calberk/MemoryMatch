@@ -353,7 +353,7 @@ body {
 
 #reset-game {
     background-size: contain;
-    height: 60%;
+    max-height: 50%;
     position: relative;
     margin: auto;
 }
@@ -739,7 +739,6 @@ body {
 }
 
 #reset-game {
-    width: 30%;
     position: relative;
     margin: 0 auto;
 }
